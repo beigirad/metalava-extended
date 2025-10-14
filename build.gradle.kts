@@ -1,6 +1,6 @@
 plugins {
     kotlin("jvm") version "2.1.21"
-    id("com.gradleup.shadow") version "9.2.2"
+    id("com.gradleup.shadow") version "9.1.0"
     application
 }
 
@@ -18,10 +18,15 @@ application {
     mainClass.set("ir.beigirad.MainKt")
 }
 
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
 
 dependencies {
     testImplementation(kotlin("test"))
-    implementation("com.android.tools.metalava:metalava:1.0.0-alpha13")
+    implementation("com.android.tools.metalava:metalava:1.0.0-alpha06")
     implementation("com.github.beigirad:console-helper:0f927115c8")
 }
 
