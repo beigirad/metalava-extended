@@ -1,25 +1,32 @@
 package ir.beigirad
 
+import ir.beigirad.consolehelper.ArgProcessor
 import java.io.File
 import java.util.zip.ZipFile
 
+fun main(rawArgs: Array<String>) {
+    val args = ArgProcessor(rawArgs)
+    val inputFile = File(args["jar-file"])
+    val filter = args.getOrNull("filter")
+    val reportFile = File(args["report"])
+    val miniReportFile = args.getOrNull("mini-report")?.let { File(it) }
 
-fun main() {
-    val file = File("/Users/farhad/Projects/metalava/core-release.aar")
-    val jar = prepareInputJar(file)
-    val report = File("/Users/farhad/Projects/metalava/report.txt")
-    val filteredReport = File("/Users/farhad/Projects/metalava/report-filtered.txt")
+    val jarFile = prepareInputJar(inputFile)
 
     // because metalava kills the process
     Runtime.getRuntime().addShutdownHook(Thread {
-        println("🔍 Metalava done with ${report.name} ...")
+        println("🔍 Metalava done with ${reportFile.name} ...")
 
-        filterReport(input = report, output = filteredReport)
+        if (filter != null && miniReportFile != null)
+            filterReport(input = reportFile, output = miniReportFile, filter = filter)
 
-        println("✅ Filtered report written to: ${filteredReport.absolutePath}")
+        println("✅ Report was written to: ${reportFile.absolutePath} and ${miniReportFile?.absolutePath}")
+
+        if (jarFile != inputFile)
+            File("classes-${inputFile.nameWithoutExtension}.jar").delete()
     })
 
-    generateFullReport(input = jar, output = report)
+    generateFullReport(input = jarFile, output = reportFile)
 }
 
 fun prepareInputJar(input: File): File =
@@ -55,9 +62,9 @@ fun generateFullReport(input: File, output: File) {
     }
 }
 
-fun filterReport(input: File, output: File) {
+fun filterReport(input: File, output: File, filter: String) {
     val lines = input.readLines()
-    val regex = Regex("tpsl", RegexOption.IGNORE_CASE)
+    val regex = Regex(filter, RegexOption.IGNORE_CASE)
 
     val result = mutableListOf<String>()
     var skipBlock = false

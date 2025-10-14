@@ -10,6 +10,7 @@ version = "1.0-SNAPSHOT"
 repositories {
     mavenCentral()
     google()
+    maven { url = uri("https://jitpack.io") }
 }
 
 application {
@@ -21,6 +22,7 @@ application {
 dependencies {
     testImplementation(kotlin("test"))
     implementation("com.android.tools.metalava:metalava:1.0.0-alpha13")
+    implementation("com.github.beigirad:console-helper:0f927115c8")
 }
 
 tasks.test {
