@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "2.1.21"
+    kotlin("jvm") version "1.8.20"
     id("com.gradleup.shadow") version "9.1.0"
     application
 }
@@ -30,7 +30,7 @@ kotlin {
 dependencies {
     testImplementation(kotlin("test"))
     implementation("com.android.tools.metalava:metalava:1.0.0-alpha06")
-    implementation("com.github.beigirad:console-helper:0f927115c8")
+    implementation("com.github.beigirad:console-helper:a77a84d0e8")
 }
 
 tasks.test {
