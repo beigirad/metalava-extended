@@ -1,0 +1,1447 @@
+// Signature format: 2.0
+package ir.tapsell.core {
+
+  public final class CoreInitializer extends ir.tapsell.core.internal.init.TapsellComponentInitializer {
+    ctor public CoreInitializer();
+    method public void postInitialize(@NonNull android.content.Context);
+    method public void preInitialize(@NonNull android.content.Context);
+    field public ir.tapsell.core.tpslk tpsla;
+  }
+
+  public final class LogTag {
+    ctor public LogTag();
+    method @NonNull public static java.lang.String T_TAPSELL();
+    method @NonNull public java.lang.String getT_CONFIG-4__C6Ak$core_release();
+    method @NonNull public java.lang.String getT_INIT-4__C6Ak();
+    method @NonNull public java.lang.String getT_TASK-4__C6Ak$core_release();
+    method @NonNull public java.lang.String getT_UTILS-4__C6Ak();
+    field @NonNull public static final ir.tapsell.core.LogTag INSTANCE;
+    field @NonNull public static final java.lang.String tpsla;
+    field @NonNull public static final java.lang.String tpslb;
+    field @NonNull public static final java.lang.String tpslc;
+    field @NonNull public static final java.lang.String tpsld;
+    field @NonNull public static final java.lang.String tpsle;
+  }
+
+  public final class TapsellConfigKt {
+    ctor public TapsellConfigKt();
+    method @NonNull public static java.lang.String getApiBaseUrl(@NonNull ir.tapsell.core.internal.CoreConfig);
+    method @NonNull public static ir.tapsell.core.internal.AppStatus getAppStatus(@NonNull ir.tapsell.core.internal.CoreConfig);
+    method public static boolean getAppsQueryEnabled(@NonNull ir.tapsell.core.internal.CoreConfig);
+    method @NonNull public static java.lang.String getConfigId(@NonNull ir.tapsell.core.internal.CoreConfig);
+    method public static boolean getConfigUpdateEnabled(@NonNull ir.tapsell.core.internal.CoreConfig);
+    method @NonNull public static ir.tapsell.core.utils.common.Time getConfigUpdateInterval(@NonNull ir.tapsell.core.internal.CoreConfig);
+    method public static boolean getLogcatLogDataEnabled(@NonNull ir.tapsell.core.internal.CoreConfig);
+    method @NonNull public static ir.tapsell.core.internal.log.LogLevel getLogcatLogLevel(@NonNull ir.tapsell.core.internal.CoreConfig);
+    method public static boolean getUserIdUpdateEnabled(@NonNull ir.tapsell.core.internal.CoreConfig);
+    method @NonNull public static ir.tapsell.core.utils.common.Time getUserIdUpdateInterval(@NonNull ir.tapsell.core.internal.CoreConfig);
+  }
+
+  public final class TapsellUnhandledException {
+    ctor public TapsellUnhandledException(@NonNull java.lang.Throwable);
+  }
+
+  public final class tpsla {
+    ctor public tpsla();
+    method public void onServiceConnected(@NonNull android.content.ComponentName, @NonNull android.os.IBinder);
+    method public void onServiceDisconnected(@NonNull android.content.ComponentName);
+    field @NonNull public final java.util.concurrent.ArrayBlockingQueue tpsla;
+  }
+
+  public final class tpslaa {
+    ctor public tpslaa();
+    method public java.util.List<okhttp3.Interceptor> tpsla(android.content.Context, ir.tapsell.core.tpslau);
+    method public static okhttp3.Response tpsla(ir.tapsell.core.tpslaa, okhttp3.Interceptor.Chain);
+  }
+
+  public final class tpslab {
+    ctor public tpslab();
+    field public static ir.tapsell.core.tpslaa tpsla;
+  }
+
+  public final class tpslac {
+    ctor public tpslac();
+    method @Nullable public com.squareup.moshi.JsonAdapter<?> create(@NonNull java.lang.reflect.Type, @NonNull java.util.Set<? extends java.lang.annotation.Annotation>, @NonNull com.squareup.moshi.Moshi);
+  }
+
+  public final class tpslad implements ir.tapsell.core.utils.common.di.Provider<okhttp3.OkHttpClient> {
+    ctor public tpslad();
+    method @NonNull public static okhttp3.OkHttpClient tpsla();
+    field public static okhttp3.OkHttpClient tpsla;
+  }
+
+  public final class tpslae implements ir.tapsell.core.utils.common.di.Provider<ir.tapsell.core.network.ServiceGenerator> {
+    ctor public tpslae();
+    field public static ir.tapsell.core.network.ServiceGenerator tpsla;
+  }
+
+  public final class tpslaf {
+    ctor public tpslaf(ir.tapsell.core.tpslaj, ir.tapsell.core.internal.task.TaskResult);
+    method public java.lang.Object invoke(java.lang.Object);
+  }
+
+  public final class tpslag {
+    ctor public tpslag(ir.tapsell.core.tpslaj, ir.tapsell.core.internal.task.TaskResult);
+    method public java.lang.Object invoke(java.lang.Object);
+  }
+
+  public final class tpslah {
+    ctor public tpslah(ir.tapsell.core.tpslaj);
+    method public java.lang.Object invoke();
+  }
+
+  public final class tpslai {
+    ctor public tpslai(ir.tapsell.core.tpslaj);
+    method public java.lang.Object invoke();
+  }
+
+  public final class tpslaj {
+    ctor public tpslaj(@NonNull ir.tapsell.core.internal.task.TaskScheduler, @NonNull ir.tapsell.core.tpsly, @NonNull ir.tapsell.core.internal.CoreConfig, @NonNull ir.tapsell.core.internal.CoreLifecycle, @NonNull ir.tapsell.core.user.UserIdProvider);
+    field @NonNull public final ir.tapsell.core.internal.task.TaskScheduler tpsla;
+    field @NonNull public final ir.tapsell.core.tpsly tpslb;
+    field @NonNull public final ir.tapsell.core.internal.CoreConfig tpslc;
+    field @NonNull public final ir.tapsell.core.internal.CoreLifecycle tpsld;
+    field @NonNull public final ir.tapsell.core.user.UserIdProvider tpsle;
+  }
+
+  public final class tpslak implements ir.tapsell.core.utils.common.di.Provider<ir.tapsell.core.tpslaj> {
+    ctor public tpslak();
+    method @NonNull public static ir.tapsell.core.tpslaj tpsla();
+    field public static ir.tapsell.core.tpslaj tpsla;
+  }
+
+  public final class tpslal {
+    ctor public tpslal();
+    field @NonNull public static final ir.tapsell.core.internal.TapsellExecutor tpsla;
+    field @NonNull public static final ir.tapsell.core.internal.TapsellExecutor tpslb;
+    field @NonNull public static final ir.tapsell.core.tpslw tpslc;
+  }
+
+  public final class tpslam implements ir.tapsell.core.utils.common.di.Provider<ir.tapsell.core.moshi.TapsellMoshi> {
+    ctor public tpslam();
+    field public static ir.tapsell.core.moshi.TapsellMoshi tpsla;
+  }
+
+  public final class tpslan implements ir.tapsell.core.utils.common.di.Provider<ir.tapsell.core.internal.TapsellStorage> {
+    ctor public tpslan();
+    field public static ir.tapsell.core.internal.TapsellStorage tpsla;
+  }
+
+  public final class tpslao implements ir.tapsell.core.utils.common.di.Provider<ir.tapsell.core.internal.task.TaskScheduler> {
+    ctor public tpslao();
+    method @NonNull public static ir.tapsell.core.internal.task.TaskScheduler tpsla();
+    field public static ir.tapsell.core.internal.task.TaskScheduler tpsla;
+  }
+
+  public final class tpslap {
+    ctor public tpslap(ir.tapsell.core.tpslar, java.lang.String);
+    method public java.lang.Object invoke();
+  }
+
+  public final class tpslaq {
+    ctor public tpslaq(ir.tapsell.core.tpslar, java.lang.String);
+    method public java.lang.Object invoke();
+  }
+
+  public final class tpslar {
+    ctor public tpslar(@NonNull ir.tapsell.core.internal.TapsellExecutor, @NonNull ir.tapsell.core.utils.common.Time, @Nullable kotlin.jvm.functions.Function0);
+    method public static void tpsla(ir.tapsell.core.tpslar, java.lang.String);
+    method public void tpsla(@Nullable kotlin.jvm.functions.Function0<kotlin.Unit>);
+    field @NonNull public final ir.tapsell.core.utils.common.Time tpsla;
+    field @NonNull public final ir.tapsell.core.internal.TapsellExecutor tpslb;
+    field @Nullable public kotlin.jvm.functions.Function0<kotlin.Unit> tpslc;
+    field @Nullable public java.lang.String tpsld;
+  }
+
+  public final class tpslas implements ir.tapsell.core.internal.UpdatableConfig {
+    ctor public tpslas();
+    method public void onConfigUpdate(@NonNull kotlin.jvm.functions.Function0<kotlin.Unit>);
+    method public void updateConfig();
+    field @NonNull public final ir.tapsell.core.utils.common.rx.BehaviorRelay<java.lang.Boolean> tpsla;
+  }
+
+  public final class tpslat implements ir.tapsell.core.utils.common.di.Provider<ir.tapsell.core.user.UserIdProvider> {
+    ctor public tpslat();
+    method @NonNull public static ir.tapsell.core.user.UserIdProvider tpsla();
+    field public static ir.tapsell.core.user.UserIdProvider tpsla;
+  }
+
+  public final class tpslau {
+    ctor public tpslau(@NonNull ir.tapsell.core.internal.TapsellStorage);
+    field @NonNull public final ir.tapsell.core.internal.PersistedItem tpsla;
+  }
+
+  public final class tpslav implements ir.tapsell.core.utils.common.di.Provider<ir.tapsell.core.tpslau> {
+    ctor public tpslav();
+    field public static ir.tapsell.core.tpslau tpsla;
+  }
+
+  public final class tpslaw {
+    ctor public tpslaw(ir.tapsell.core.tpslay);
+    method public java.lang.Object invoke();
+  }
+
+  public final class tpslax {
+    ctor public tpslax(ir.tapsell.core.tpslay);
+    method public java.lang.Object invoke();
+  }
+
+  public final class tpslay {
+    ctor public tpslay(@NonNull ir.tapsell.core.internal.CoreLifecycle, @NonNull android.content.Context);
+    field @NonNull public final ir.tapsell.core.internal.CoreLifecycle tpsla;
+    field @NonNull public final android.content.Context tpslb;
+    field public int tpslc;
+    field @NonNull public static final ir.tapsell.core.utils.common.Time tpsld;
+  }
+
+  public final class tpslaz implements ir.tapsell.core.utils.common.di.Provider<ir.tapsell.core.tpslay> {
+    ctor public tpslaz();
+    field public static ir.tapsell.core.tpslay tpsla;
+  }
+
+  public interface tpslb {
+    method @NonNull public retrofit2.Call<java.util.Map<java.lang.String,java.lang.Object>> tpsla(@NonNull java.lang.String);
+    method @Nullable public java.lang.Object tpsla(@NonNull java.lang.String, @NonNull ir.tapsell.core.network.model.UserIdRequest, @NonNull kotlin.coroutines.Continuation<? super retrofit2.Response<ir.tapsell.core.network.model.UserIdResponse>>);
+  }
+
+  public final class tpslc implements ir.tapsell.core.utils.common.di.Provider<ir.tapsell.core.utils.ApplicationInfoHelper> {
+    ctor public tpslc();
+    field public static ir.tapsell.core.utils.ApplicationInfoHelper tpsla;
+  }
+
+  public final class tpsld {
+    ctor public tpsld(@Nullable java.lang.String, @Nullable java.lang.Integer);
+    method public boolean equals(@Nullable java.lang.Object);
+    method public int hashCode();
+    method @NonNull public java.lang.String toString();
+    field @Nullable public final java.lang.String tpsla;
+    field @Nullable public final java.lang.Integer tpslb;
+  }
+
+  public final class tpsle<S, T> {
+    ctor public tpsle(@NonNull kotlin.jvm.functions.Function0<? extends S>, @NonNull kotlin.jvm.functions.Function1<? super S,? extends T>, @NonNull kotlin.jvm.functions.Function2<? super S,? super S,java.lang.Boolean>);
+    method public T getValue(@Nullable java.lang.Object, @NonNull kotlin.reflect.KProperty<?>);
+    field @NonNull public final kotlin.jvm.functions.Function0<S> tpsla;
+    field @NonNull public final kotlin.jvm.functions.Function1<S,T> tpslb;
+    field @NonNull public final kotlin.jvm.functions.Function2<S,S,java.lang.Boolean> tpslc;
+    field @Nullable public S tpsld;
+    field public boolean tpsle;
+    field @Nullable public T tpslf;
+  }
+
+  public final class tpslf implements ir.tapsell.core.utils.common.di.Provider<android.content.Context> {
+    ctor public tpslf();
+    field public static android.content.Context tpsla;
+  }
+
+  public final class tpslg implements ir.tapsell.core.utils.common.di.Provider<ir.tapsell.core.internal.CoreConfig> {
+    ctor public tpslg();
+    method @NonNull public static ir.tapsell.core.internal.CoreConfig tpsla();
+    field public static ir.tapsell.core.internal.CoreConfig tpsla;
+  }
+
+  public final class tpslh implements ir.tapsell.core.utils.common.di.Provider<ir.tapsell.core.internal.CoreLifecycle> {
+    ctor public tpslh();
+    field public static ir.tapsell.core.internal.CoreLifecycle tpsla;
+  }
+
+  public final class tpsli {
+    ctor public tpsli(@NonNull android.content.Context);
+    field @NonNull public final android.content.Context tpsla;
+  }
+
+  public final class tpslj {
+    ctor public tpslj();
+    field public static ir.tapsell.core.tpsli tpsla;
+  }
+
+  public final class tpslk implements ir.tapsell.core.di.CoreComponent {
+    ctor public tpslk();
+    method @NonNull public ir.tapsell.core.utils.ApplicationInfoHelper applicationInfoHelper();
+    method @NonNull public android.content.Context context();
+    method @NonNull public ir.tapsell.core.internal.CoreLifecycle coreLifecycle();
+    method @NonNull public ir.tapsell.core.utils.DeviceIdHelper deviceIdHelper();
+    method @NonNull public ir.tapsell.core.utils.DeviceInfoHelper deviceInfoHelper();
+    method @NonNull public ir.tapsell.core.network.model.DeviceInfoModelProvider deviceInfoModelProvider();
+    method @NonNull public ir.tapsell.core.utils.GoogleServicesHelper googleServicesHelper();
+    method public void inject(@NonNull ir.tapsell.core.tasks.UserIdRequestTask);
+    method @NonNull public ir.tapsell.core.tpslu logcatLogHandler();
+    method @NonNull public okhttp3.OkHttpClient okhttpClient();
+    method @NonNull public ir.tapsell.core.network.ServiceGenerator serviceGenerator();
+    method @NonNull public ir.tapsell.core.internal.CoreConfig tapsellConfig();
+    method @NonNull public ir.tapsell.core.tpslaj tapsellConfigProvider();
+    method @NonNull public ir.tapsell.core.moshi.TapsellMoshi tapsellMoshi();
+    method @NonNull public ir.tapsell.core.internal.TapsellStorage tapsellStorage();
+    method @NonNull public ir.tapsell.core.internal.task.TaskScheduler taskScheduler();
+    method @NonNull public ir.tapsell.core.user.UserIdProvider userIdProvider();
+    method @NonNull public ir.tapsell.core.tpslay workManagerInitChecker();
+  }
+
+  public final class tpsll {
+    ctor public tpsll(ir.tapsell.core.tpslm, java.lang.String);
+    method public java.lang.Object invoke();
+  }
+
+  public final class tpslm {
+    ctor public tpslm(@NonNull ir.tapsell.core.internal.TapsellExecutor, @NonNull ir.tapsell.core.utils.common.Time, @Nullable kotlin.jvm.functions.Function0);
+    method public void tpsla(@Nullable kotlin.jvm.functions.Function0<kotlin.Unit>);
+    field @NonNull public final ir.tapsell.core.utils.common.Time tpsla;
+    field @Nullable public kotlin.jvm.functions.Function0<kotlin.Unit> tpslb;
+    field @NonNull public final ir.tapsell.core.internal.TapsellExecutor tpslc;
+    field @NonNull public java.lang.String tpsld;
+  }
+
+  public final class tpsln implements ir.tapsell.core.utils.common.di.Provider<ir.tapsell.core.utils.DeviceIdHelper> {
+    ctor public tpsln();
+    field public static ir.tapsell.core.utils.DeviceIdHelper tpsla;
+  }
+
+  public final class tpslo implements ir.tapsell.core.utils.common.di.Provider<ir.tapsell.core.utils.DeviceInfoHelper> {
+    ctor public tpslo();
+    field public static ir.tapsell.core.utils.DeviceInfoHelper tpsla;
+  }
+
+  public final class tpslp implements ir.tapsell.core.utils.common.di.Provider<ir.tapsell.core.network.model.DeviceInfoModelProvider> {
+    ctor public tpslp();
+    method @NonNull public static ir.tapsell.core.network.model.DeviceInfoModelProvider tpsla();
+    field public static ir.tapsell.core.network.model.DeviceInfoModelProvider tpsla;
+  }
+
+  public final class tpslq {
+    ctor public tpslq();
+    method public static void tpsla();
+    method public static void tpsla(java.lang.Thread.UncaughtExceptionHandler, java.lang.Thread, java.lang.Throwable);
+    method public static boolean tpsla(java.lang.Throwable);
+  }
+
+  public final class tpslr implements ir.tapsell.core.utils.common.di.Provider<ir.tapsell.core.utils.GoogleServicesHelper> {
+    ctor public tpslr();
+    field public static ir.tapsell.core.utils.GoogleServicesHelper tpsla;
+  }
+
+  public final class tpsls {
+    ctor public tpsls();
+    method @NonNull public okhttp3.Response intercept(@NonNull okhttp3.Interceptor.Chain);
+  }
+
+  public abstract class tpslt {
+    ctor public tpslt();
+    method public int delete(@NonNull android.net.Uri, @Nullable java.lang.String, @Nullable java.lang.String[]);
+    method @Nullable public java.lang.String getType(@NonNull android.net.Uri);
+    method public abstract void initialize(@NonNull android.content.Context);
+    method @Nullable public android.net.Uri insert(@NonNull android.net.Uri, @Nullable android.content.ContentValues);
+    method public boolean onCreate();
+    method @Nullable public android.database.Cursor query(@NonNull android.net.Uri, @Nullable java.lang.String[], @Nullable java.lang.String, @Nullable java.lang.String[], @Nullable java.lang.String);
+    method public int update(@NonNull android.net.Uri, @Nullable android.content.ContentValues, @Nullable java.lang.String, @Nullable java.lang.String[]);
+  }
+
+  public final class tpslu implements ir.tapsell.core.internal.log.LogHandler {
+    ctor public tpslu(@NonNull ir.tapsell.core.internal.CoreConfig);
+    method public void onLog(@NonNull ir.tapsell.core.internal.log.TapsellLogger.LogItem);
+    field @NonNull public final ir.tapsell.core.internal.CoreConfig tpsla;
+  }
+
+  public final class tpslv implements ir.tapsell.core.utils.common.di.Provider<ir.tapsell.core.tpslu> {
+    ctor public tpslv();
+    field public static ir.tapsell.core.tpslu tpsla;
+  }
+
+  public final class tpslw extends ir.tapsell.core.internal.TapsellExecutor {
+    ctor public tpslw();
+    method public void execute(@NonNull java.lang.Runnable);
+    method public static void tpsla(java.lang.Runnable, ir.tapsell.core.tpslw);
+    method public static void tpsla(kotlin.jvm.functions.Function0, ir.tapsell.core.tpslw);
+  }
+
+  public final class tpslx {
+    ctor public tpslx(@Nullable java.lang.Long);
+    method public boolean equals(@Nullable java.lang.Object);
+    method public int hashCode();
+    method @NonNull public java.lang.String toString();
+    field @Nullable public final java.lang.Long tpsla;
+  }
+
+  public final class tpsly {
+    ctor public tpsly(@NonNull ir.tapsell.core.network.model.DeviceInfoModelProvider, @NonNull ir.tapsell.core.internal.CoreConfig, @NonNull ir.tapsell.core.moshi.TapsellMoshi, @NonNull ir.tapsell.core.network.ServiceGenerator);
+    method @Nullable public java.lang.Object tpsla(@NonNull kotlin.coroutines.Continuation<? super kotlin.Result<java.lang.String>>);
+    field @NonNull public final ir.tapsell.core.network.model.DeviceInfoModelProvider tpsla;
+    field @NonNull public final ir.tapsell.core.tpslb tpslb;
+  }
+
+  public final class tpslz implements ir.tapsell.core.utils.common.di.Provider<ir.tapsell.core.tpsly> {
+    ctor public tpslz();
+    field public static ir.tapsell.core.tpsly tpsla;
+  }
+
+}
+
+package ir.tapsell.core.di {
+
+  public interface CoreComponent extends ir.tapsell.core.internal.init.TapsellModuleComponent {
+    method @NonNull public ir.tapsell.core.utils.ApplicationInfoHelper applicationInfoHelper();
+    method @NonNull public android.content.Context context();
+    method @NonNull public ir.tapsell.core.internal.CoreLifecycle coreLifecycle();
+    method @NonNull public ir.tapsell.core.utils.DeviceIdHelper deviceIdHelper();
+    method @NonNull public ir.tapsell.core.utils.DeviceInfoHelper deviceInfoHelper();
+    method @NonNull public ir.tapsell.core.network.model.DeviceInfoModelProvider deviceInfoModelProvider();
+    method @NonNull public ir.tapsell.core.utils.GoogleServicesHelper googleServicesHelper();
+    method public void inject(@NonNull ir.tapsell.core.tasks.UserIdRequestTask);
+    method @NonNull public ir.tapsell.core.tpslu logcatLogHandler();
+    method @NonNull public okhttp3.OkHttpClient okhttpClient();
+    method @NonNull public ir.tapsell.core.network.ServiceGenerator serviceGenerator();
+    method @NonNull public ir.tapsell.core.internal.CoreConfig tapsellConfig();
+    method @NonNull public ir.tapsell.core.tpslaj tapsellConfigProvider();
+    method @NonNull public ir.tapsell.core.moshi.TapsellMoshi tapsellMoshi();
+    method @NonNull public ir.tapsell.core.internal.TapsellStorage tapsellStorage();
+    method @NonNull public ir.tapsell.core.internal.task.TaskScheduler taskScheduler();
+    method @NonNull public ir.tapsell.core.user.UserIdProvider userIdProvider();
+    method @NonNull public ir.tapsell.core.tpslay workManagerInitChecker();
+  }
+
+}
+
+package ir.tapsell.core.gdpr {
+
+  public final class PrivacySettingsProvider {
+    method @NonNull public java.lang.String getInstallationSource();
+    method public boolean getSdkConsentStatus();
+    method @NonNull public ir.tapsell.core.gdpr.UserConsentStatus getUserConsentStatus();
+    method public boolean isUserConsentApproved();
+    method public void registerInstallationSource(@NonNull java.lang.String);
+    method public void registerSdkConsentStatus(boolean);
+    method @NonNull public ir.tapsell.core.gdpr.UserConsentStatus registerUserConsentStatus(boolean);
+    field @NonNull public static final ir.tapsell.core.gdpr.PrivacySettingsProvider INSTANCE;
+  }
+
+  public enum UserConsentStatus {
+    method @Nullable public java.lang.Boolean getValue();
+    method public void ifSelectedByUser(@NonNull kotlin.jvm.functions.Function1<? super ir.tapsell.core.gdpr.UserConsentStatus,kotlin.Unit>);
+    method @Nullable public kotlin.Unit ifSelectedByUser(@NonNull kotlin.jvm.functions.Function1<? super java.lang.Boolean,kotlin.Unit>);
+    method public boolean isUnknown();
+    enum_constant public static final ir.tapsell.core.gdpr.UserConsentStatus APPROVED;
+    enum_constant public static final ir.tapsell.core.gdpr.UserConsentStatus REJECTED;
+    enum_constant public static final ir.tapsell.core.gdpr.UserConsentStatus UNKNOWN;
+    field @NonNull public static final ir.tapsell.core.gdpr.UserConsentStatus.Companion Companion;
+  }
+
+  public static final class UserConsentStatus.Companion {
+    method @NonNull public ir.tapsell.core.gdpr.UserConsentStatus fromInt(int);
+  }
+
+}
+
+package ir.tapsell.core.internal {
+
+  public enum AppStatus {
+    method public boolean isDisabled();
+    enum_constant public static final ir.tapsell.core.internal.AppStatus ACTIVE;
+    enum_constant public static final ir.tapsell.core.internal.AppStatus IN_ACTIVE;
+    field @NonNull public static final ir.tapsell.core.internal.AppStatus.Companion Companion;
+  }
+
+  public static final class AppStatus.Companion {
+    method @NonNull public ir.tapsell.core.internal.AppStatus fromInt(int);
+    method @NonNull public ir.tapsell.core.internal.AppStatus fromString(@NonNull java.lang.String);
+  }
+
+  public abstract class BaseConfig implements ir.tapsell.core.internal.UpdatableConfig {
+    ctor public BaseConfig(@NonNull java.lang.String, @NonNull ir.tapsell.core.internal.TapsellStorage, @NonNull ir.tapsell.core.moshi.TapsellMoshi, @NonNull ir.tapsell.core.internal.PersistedMap<java.lang.Object>, @NonNull ir.tapsell.core.internal.UpdatableConfig);
+    method @NonNull public final java.util.Map<java.lang.String,java.lang.Object> getAllConfig();
+    method public final boolean getBoolean(@NonNull java.lang.String, boolean);
+    method public final int getInteger(@NonNull java.lang.String, int);
+    method @NonNull public final <T> java.util.List<T> getObjectList(@NonNull java.lang.String, @NonNull java.lang.Class<T>, @NonNull java.util.List<? extends T>);
+    method @NonNull public final java.lang.String getString(@NonNull java.lang.String, @NonNull java.lang.String);
+    method @NonNull public final java.util.List<java.lang.String> getStringList(@NonNull java.lang.String, @NonNull java.util.List<java.lang.String>);
+    method @NonNull public final ir.tapsell.core.utils.common.Time getTime(@NonNull java.lang.String, @NonNull ir.tapsell.core.utils.common.Time);
+    method public void onConfigUpdate(@NonNull kotlin.jvm.functions.Function0<kotlin.Unit>);
+    method public void updateConfig();
+    method public final void updateConfig(@NonNull java.util.Map<java.lang.String,?>);
+  }
+
+  public final class CoreConfig extends ir.tapsell.core.internal.BaseConfig {
+    ctor public CoreConfig(@NonNull ir.tapsell.core.moshi.TapsellMoshi, @NonNull ir.tapsell.core.internal.TapsellStorage);
+  }
+
+  public final class CoreLifecycle {
+    ctor public CoreLifecycle();
+    method public void configFetchResultCompleted$core_release();
+    method public boolean isPostInitComplete();
+    method public boolean isUserIdAvailable$core_release();
+    method public void postInitComplete$core_release();
+    method public void preInitComplete$core_release();
+    method public void userIdAvailable$core_release();
+    method public void waitForConfigFetchResult(@NonNull kotlin.jvm.functions.Function0<kotlin.Unit>);
+    method public void waitForPostInit(@NonNull kotlin.jvm.functions.Function0<kotlin.Unit>);
+    method public void waitForPreInit(@NonNull kotlin.jvm.functions.Function0<kotlin.Unit>);
+    method public void waitForUserIdAvailability(@NonNull kotlin.jvm.functions.Function0<kotlin.Unit>);
+    method public void waitForWorkManagerInit(@NonNull kotlin.jvm.functions.Function0<kotlin.Unit>);
+    method public void workManagerInitialized$core_release();
+  }
+
+  public final class EnvironmentKt {
+    ctor public EnvironmentKt();
+    method public static boolean development();
+  }
+
+  public final class ExecutorsKt {
+    ctor public ExecutorsKt();
+    method @NonNull public static java.util.concurrent.ExecutorService cpuExecutor();
+    method public static void cpuExecutor(@NonNull ir.tapsell.core.utils.common.Time, @NonNull kotlin.jvm.functions.Function0<kotlin.Unit>);
+    method public static void cpuExecutor(@NonNull kotlin.jvm.functions.Function0<kotlin.Unit>);
+    method @NonNull public static java.util.concurrent.ExecutorService ioExecutor();
+    method public static void ioExecutor(@NonNull ir.tapsell.core.utils.common.Time, @NonNull kotlin.jvm.functions.Function0<kotlin.Unit>);
+    method public static void ioExecutor(@NonNull kotlin.jvm.functions.Function0<kotlin.Unit>);
+    method @NonNull public static java.util.concurrent.Executor uiExecutor();
+    method public static void uiExecutor(@NonNull ir.tapsell.core.utils.common.Time, @NonNull kotlin.jvm.functions.Function0<kotlin.Unit>);
+    method public static void uiExecutor(@NonNull kotlin.jvm.functions.Function0<kotlin.Unit>);
+  }
+
+  public interface PersistedItem<T> {
+    method public void delete();
+    method public T get();
+    method public T getValue(@Nullable java.lang.Object, @NonNull kotlin.reflect.KProperty<?>);
+    method public void set(T);
+    method public void setValue(@Nullable java.lang.Object, @NonNull kotlin.reflect.KProperty<?>, T);
+  }
+
+  public interface PersistedList<T> {
+    method public void save();
+  }
+
+  public interface PersistedMap<T> {
+    method @Nullable public T put(@NonNull java.lang.String, T, @Nullable ir.tapsell.core.utils.common.Time);
+    method public void save();
+  }
+
+  public interface PersistedSet<T> {
+    method public void save();
+  }
+
+  public enum Platform {
+    enum_constant public static final ir.tapsell.core.internal.Platform Android;
+    enum_constant public static final ir.tapsell.core.internal.Platform Cordova;
+    enum_constant public static final ir.tapsell.core.internal.Platform Flutter;
+    enum_constant public static final ir.tapsell.core.internal.Platform Invalid;
+    enum_constant public static final ir.tapsell.core.internal.Platform ReactNative;
+    enum_constant public static final ir.tapsell.core.internal.Platform Unity;
+    enum_constant public static final ir.tapsell.core.internal.Platform Unknown;
+    field @NonNull public static final ir.tapsell.core.internal.Platform.tpsla Companion;
+  }
+
+  public static final class Platform.tpsla {
+    ctor public Platform.tpsla();
+  }
+
+  public final class PlatformKt {
+    ctor public PlatformKt();
+    method public static boolean isAndroidNative();
+    method public static boolean isCordova();
+    method public static boolean isFlutter();
+    method public static boolean isReactNative();
+    method public static boolean isUnity();
+    method @NonNull public static ir.tapsell.core.internal.Platform platform();
+    method public static void setPlatform(@NonNull java.lang.String);
+    field @NonNull public static ir.tapsell.core.internal.Platform tpsla;
+  }
+
+  public class TapsellException {
+    ctor public TapsellException(java.lang.String);
+    ctor public TapsellException(java.lang.String, java.lang.Throwable);
+  }
+
+  public class TapsellExecutor {
+    ctor public TapsellExecutor(@NonNull java.lang.String, int);
+    method public void afterExecute(@NonNull java.lang.Runnable, @Nullable java.lang.Throwable);
+    method @NonNull public final java.lang.String getName();
+    method public void schedule(@NonNull ir.tapsell.core.utils.common.Time, @NonNull kotlin.jvm.functions.Function0<kotlin.Unit>);
+  }
+
+  public final class TapsellInternals {
+    method @Nullable public <T extends ir.tapsell.core.internal.init.TapsellModuleComponent> T getComponent(@NonNull java.lang.Class<T>);
+    method @Nullable public <T extends ir.tapsell.core.internal.init.TapsellModuleComponent> T getComponentByName(@NonNull java.lang.String);
+    method @NonNull public java.util.Map<java.lang.Class<? extends ir.tapsell.core.internal.init.TapsellModuleComponent>,ir.tapsell.core.internal.init.TapsellModuleComponent> getComponents$core_release();
+    method @NonNull public java.util.Map<java.lang.String,ir.tapsell.core.internal.init.TapsellModuleComponent> getComponentsByName$core_release();
+    method @NonNull public java.lang.String getMediationApplicationId();
+    method @NonNull public java.util.List<ir.tapsell.core.internal.init.ComponentDescriptor> getTAPSELL_COMPONENTS$core_release();
+    method public void registerComponent(@NonNull java.lang.String, @NonNull java.lang.Class<? extends ir.tapsell.core.internal.init.TapsellModuleComponent>, @NonNull ir.tapsell.core.internal.init.TapsellModuleComponent);
+    method public void registerPlatform(@NonNull java.lang.String);
+    method public void setMediationApplicationId(@NonNull java.lang.String);
+    field @NonNull public static final java.lang.String CLOCK = "Clock";
+    field @NonNull public static final java.lang.String CORE = "Core";
+    field @NonNull public static final ir.tapsell.core.internal.TapsellInternals INSTANCE;
+    field @NonNull public static final java.lang.String MEDIATOR = "Mediator";
+    field @NonNull public static final java.lang.String SENTRY = "Sentry";
+    field @NonNull public static final java.lang.String SESSION = "Session";
+    field public static java.lang.String mediationApplicationId;
+  }
+
+  public final class TapsellStorage {
+    ctor public TapsellStorage(@NonNull ir.tapsell.core.moshi.TapsellMoshi, @NonNull android.content.Context);
+    ctor public TapsellStorage(@NonNull ir.tapsell.core.moshi.TapsellMoshi, @NonNull android.content.SharedPreferences);
+    method @NonNull public <T> ir.tapsell.core.internal.PersistedList<T> createStoredList(@NonNull java.lang.String, @NonNull java.lang.Class<T>, @Nullable java.lang.Object);
+    method @NonNull public <T> ir.tapsell.core.internal.PersistedMap<T> createStoredMap(@NonNull java.lang.String, @NonNull java.lang.Class<T>, @NonNull com.squareup.moshi.JsonAdapter<T>, @Nullable ir.tapsell.core.utils.common.Time);
+    method @NonNull public <T> ir.tapsell.core.internal.PersistedMap<T> createStoredMap(@NonNull java.lang.String, @NonNull java.lang.Class<T>, @Nullable ir.tapsell.core.utils.common.Time);
+    method @NonNull public <T> ir.tapsell.core.internal.PersistedMap<T> createStoredMap(@NonNull java.lang.String, @NonNull java.lang.Class<T>, @Nullable java.lang.Object, @Nullable ir.tapsell.core.utils.common.Time);
+    method @NonNull public <T> ir.tapsell.core.internal.PersistedSet<T> createStoredSet(@NonNull java.lang.String, @NonNull java.lang.Class<T>, @Nullable java.lang.Object);
+    method public boolean getBoolean(@NonNull java.lang.String, boolean);
+    method public float getFloat(@NonNull java.lang.String, float);
+    method public int getInt(@NonNull java.lang.String, int);
+    method public long getLong(@NonNull java.lang.String, long);
+    method @NonNull public java.lang.String getString(@NonNull java.lang.String, @NonNull java.lang.String);
+    method public void putBoolean(@NonNull java.lang.String, boolean);
+    method public void putFloat(@NonNull java.lang.String, float);
+    method public void putInt(@NonNull java.lang.String, int);
+    method public void putLong(@NonNull java.lang.String, long);
+    method public void putString(@NonNull java.lang.String, @NonNull java.lang.String);
+    method public void remove(@NonNull java.lang.String);
+    method @NonNull public ir.tapsell.core.internal.PersistedItem<java.lang.Boolean> storedBoolean(@NonNull java.lang.String, boolean);
+    method @NonNull public ir.tapsell.core.internal.PersistedItem<java.lang.Float> storedFloat(@NonNull java.lang.String, float);
+    method @NonNull public ir.tapsell.core.internal.PersistedItem<java.lang.Integer> storedInt(@NonNull java.lang.String, int);
+    method @NonNull public ir.tapsell.core.internal.PersistedItem<java.lang.Long> storedLong(@NonNull java.lang.String, long);
+    method @NonNull public <T> ir.tapsell.core.internal.PersistedItem<T> storedObject(@NonNull java.lang.String, T, @NonNull com.squareup.moshi.JsonAdapter<T>);
+    method @NonNull public <T> ir.tapsell.core.internal.PersistedItem<T> storedObject(@NonNull java.lang.String, T, @NonNull java.lang.Class<T>);
+    method @NonNull public ir.tapsell.core.internal.PersistedItem<java.lang.String> storedString(@NonNull java.lang.String, @NonNull java.lang.String);
+    field @NonNull public static final ir.tapsell.core.internal.TapsellStorage.tpslb Companion;
+    field @NonNull public static final java.lang.String SHARED_PREF_NAME = "tapsell_store";
+  }
+
+  public static final class TapsellStorage.tpslb {
+    ctor public TapsellStorage.tpslb();
+  }
+
+  public static interface TapsellStorage.tpslc {
+    method public void tpsla(@NonNull android.content.SharedPreferences.Editor);
+  }
+
+  public interface UpdatableConfig {
+    method public void onConfigUpdate(@NonNull kotlin.jvm.functions.Function0<kotlin.Unit>);
+    method public void updateConfig();
+  }
+
+}
+
+package ir.tapsell.core.internal.init {
+
+  public class ComponentDescriptor {
+    ctor public ComponentDescriptor(@NonNull java.lang.String, @NonNull java.lang.String, @NonNull java.util.List<java.lang.String>, @Nullable java.lang.String);
+    method @NonNull public final java.util.List<java.lang.String> getDependencies();
+    method @Nullable public final java.lang.String getGdprClass();
+    method @NonNull public final java.lang.String getInitializerClass();
+    method @NonNull public final java.lang.String getName();
+  }
+
+  public final class ComponentNotAvailableException extends ir.tapsell.core.internal.TapsellException {
+    ctor public ComponentNotAvailableException(@NonNull java.lang.String);
+  }
+
+  public final class Initializer extends ir.tapsell.core.tpslt {
+    ctor public Initializer();
+    method public void initialize(@NonNull android.content.Context);
+  }
+
+  public abstract class TapsellComponentInitializer {
+    ctor public TapsellComponentInitializer();
+    method @NonNull public java.util.List<ir.tapsell.core.internal.init.ComponentDescriptor> getSubComponents();
+    method public abstract void postInitialize(@NonNull android.content.Context);
+    method public abstract void preInitialize(@NonNull android.content.Context);
+  }
+
+  public interface TapsellModuleComponent {
+  }
+
+}
+
+package ir.tapsell.core.internal.log {
+
+  public interface LogHandler {
+    method public void onLog(@NonNull ir.tapsell.core.internal.log.TapsellLogger.LogItem);
+  }
+
+  public enum LogLevel {
+    enum_constant public static final ir.tapsell.core.internal.log.LogLevel DEBUG;
+    enum_constant public static final ir.tapsell.core.internal.log.LogLevel ERROR;
+    enum_constant public static final ir.tapsell.core.internal.log.LogLevel INFO;
+    enum_constant public static final ir.tapsell.core.internal.log.LogLevel TRACE;
+    enum_constant public static final ir.tapsell.core.internal.log.LogLevel WARN;
+    enum_constant public static final ir.tapsell.core.internal.log.LogLevel WTF;
+  }
+
+  public final class Tag {
+    ctor public Tag();
+    method @NonNull public static java.lang.String constructor-impl(@NonNull java.lang.String);
+    method public boolean equals(java.lang.Object);
+    method public static boolean equals-impl(java.lang.String, java.lang.Object);
+    method public static boolean equals-impl0(java.lang.String, java.lang.String);
+    method @NonNull public java.lang.String getValue();
+    method public int hashCode();
+    method public static int hashCode-impl(java.lang.String);
+    method public java.lang.String toString();
+    method public static java.lang.String toString-impl(java.lang.String);
+  }
+
+  public class TapsellLogger {
+    ctor public TapsellLogger();
+    ctor public TapsellLogger(@Nullable ir.tapsell.core.internal.log.TapsellLogger, @NonNull ir.tapsell.core.internal.log.LogLevel);
+    method public final boolean addHandler(@NonNull ir.tapsell.core.internal.log.LogHandler);
+    method public final void debug(@NonNull java.lang.String, @NonNull kotlin.Pair<java.lang.String,?>...);
+    method public final void debug-N-SAoTA(@NonNull java.lang.String, @NonNull java.lang.String, @NonNull java.lang.String, @NonNull kotlin.Pair<java.lang.String,?>...);
+    method public final void debug-fXfl4-s(@NonNull java.lang.String, @NonNull java.lang.String, @NonNull java.lang.String, @NonNull java.lang.String, @NonNull kotlin.Pair<java.lang.String,?>...);
+    method public final void debug-nxgTB7w(@NonNull java.lang.String, @NonNull java.lang.String, @NonNull kotlin.Pair<java.lang.String,?>...);
+    method public final void error(@Nullable java.lang.String, @Nullable java.lang.Throwable, @NonNull kotlin.Pair<java.lang.String,?>...);
+    method public final void error-EcX8Kp8(@NonNull java.lang.String, @NonNull java.lang.String, @NonNull java.lang.String, @Nullable java.lang.Throwable, @NonNull kotlin.Pair<java.lang.String,?>...);
+    method public final void error-N-SAoTA(@NonNull java.lang.String, @NonNull java.lang.String, @NonNull java.lang.String, @NonNull kotlin.Pair<java.lang.String,?>...);
+    method public final void error-f9vQtv4(@NonNull java.lang.String, @NonNull java.lang.String, @Nullable java.lang.Throwable, @NonNull kotlin.Pair<java.lang.String,?>...);
+    method public final void error-fXfl4-s(@NonNull java.lang.String, @NonNull java.lang.String, @NonNull java.lang.String, @NonNull java.lang.String, @NonNull kotlin.Pair<java.lang.String,?>...);
+    method public final void error-h4iLZ8I(@NonNull java.lang.String, @NonNull java.lang.String, @NonNull java.lang.String, @NonNull java.lang.String, @Nullable java.lang.Throwable, @NonNull kotlin.Pair<java.lang.String,?>...);
+    method public final void error-nxgTB7w(@NonNull java.lang.String, @NonNull java.lang.String, @NonNull kotlin.Pair<java.lang.String,?>...);
+    method public final void error-nxgTB7w(@NonNull java.lang.String, @Nullable java.lang.Throwable, @NonNull kotlin.Pair<java.lang.String,?>...);
+    method @NonNull public final ir.tapsell.core.internal.log.TapsellLogger.LogItem getDebug();
+    method @NonNull public final ir.tapsell.core.internal.log.TapsellLogger.LogItem getError();
+    method @NonNull public final ir.tapsell.core.internal.log.TapsellLogger.LogItem getInfo();
+    method @NonNull public final ir.tapsell.core.internal.log.LogLevel getLevelFilter();
+    method @NonNull public final java.util.ArrayList<ir.tapsell.core.internal.log.LogHandler> getLogHandlers();
+    method @NonNull public final ir.tapsell.core.internal.log.TapsellLogger.LogItem getTrace();
+    method @NonNull public final ir.tapsell.core.internal.log.TapsellLogger.LogItem getWarn();
+    method @NonNull public final ir.tapsell.core.internal.log.TapsellLogger.LogItem getWtf();
+    method public final void info(@NonNull java.lang.String, @NonNull kotlin.Pair<java.lang.String,?>...);
+    method public final void info-N-SAoTA(@NonNull java.lang.String, @NonNull java.lang.String, @NonNull java.lang.String, @NonNull kotlin.Pair<java.lang.String,?>...);
+    method public final void info-fXfl4-s(@NonNull java.lang.String, @NonNull java.lang.String, @NonNull java.lang.String, @NonNull java.lang.String, @NonNull kotlin.Pair<java.lang.String,?>...);
+    method public final void info-nxgTB7w(@NonNull java.lang.String, @NonNull java.lang.String, @NonNull kotlin.Pair<java.lang.String,?>...);
+    method public final void removeAllHandlers();
+    method public final boolean removeHandler(@NonNull ir.tapsell.core.internal.log.LogHandler);
+    method public final void setLevelFilter(@NonNull ir.tapsell.core.internal.log.LogLevel);
+    method public final void trace(@NonNull java.lang.String, @NonNull kotlin.Pair<java.lang.String,?>...);
+    method public final void trace-N-SAoTA(@NonNull java.lang.String, @NonNull java.lang.String, @NonNull java.lang.String, @NonNull kotlin.Pair<java.lang.String,?>...);
+    method public final void trace-fXfl4-s(@NonNull java.lang.String, @NonNull java.lang.String, @NonNull java.lang.String, @NonNull java.lang.String, @NonNull kotlin.Pair<java.lang.String,?>...);
+    method public final void trace-nxgTB7w(@NonNull java.lang.String, @NonNull java.lang.String, @NonNull kotlin.Pair<java.lang.String,?>...);
+    method public final void warn(@NonNull java.lang.String, @Nullable java.lang.Throwable, @NonNull kotlin.Pair<java.lang.String,?>...);
+    method public final void warn(@Nullable java.lang.Throwable, @NonNull kotlin.Pair<java.lang.String,?>...);
+    method public final void warn-EcX8Kp8(@NonNull java.lang.String, @NonNull java.lang.String, @NonNull java.lang.String, @Nullable java.lang.Throwable, @NonNull kotlin.Pair<java.lang.String,?>...);
+    method public final void warn-N-SAoTA(@NonNull java.lang.String, @NonNull java.lang.String, @NonNull java.lang.String, @NonNull kotlin.Pair<java.lang.String,?>...);
+    method public final void warn-f9vQtv4(@NonNull java.lang.String, @NonNull java.lang.String, @Nullable java.lang.Throwable, @NonNull kotlin.Pair<java.lang.String,?>...);
+    method public final void warn-h4iLZ8I(@NonNull java.lang.String, @NonNull java.lang.String, @NonNull java.lang.String, @NonNull java.lang.String, @Nullable java.lang.Throwable, @NonNull kotlin.Pair<java.lang.String,?>...);
+    method public final void warn-nxgTB7w(@NonNull java.lang.String, @NonNull java.lang.String, @NonNull kotlin.Pair<java.lang.String,?>...);
+    method public final void wtf(@NonNull java.lang.String, @Nullable java.lang.Throwable, @NonNull kotlin.Pair<java.lang.String,?>...);
+    method public final void wtf(@Nullable java.lang.Throwable, @NonNull kotlin.Pair<java.lang.String,?>...);
+    method public final void wtf-EcX8Kp8(@NonNull java.lang.String, @NonNull java.lang.String, @NonNull java.lang.String, @Nullable java.lang.Throwable, @NonNull kotlin.Pair<java.lang.String,?>...);
+    method public final void wtf-f9vQtv4(@NonNull java.lang.String, @NonNull java.lang.String, @Nullable java.lang.Throwable, @NonNull kotlin.Pair<java.lang.String,?>...);
+    method public final void wtf-h4iLZ8I(@NonNull java.lang.String, @NonNull java.lang.String, @NonNull java.lang.String, @NonNull java.lang.String, @Nullable java.lang.Throwable, @NonNull kotlin.Pair<java.lang.String,?>...);
+  }
+
+  public final class TapsellLogger.AggregatedLogItem extends ir.tapsell.core.internal.log.TapsellLogger.LogItem {
+    ctor public TapsellLogger.AggregatedLogItem(@NonNull java.util.List<? extends ir.tapsell.core.internal.log.TapsellLogger.LogItem>, @Nullable java.lang.String, @NonNull java.util.Set<ir.tapsell.core.internal.log.Tag>, @NonNull ir.tapsell.core.internal.log.LogLevel, @Nullable java.lang.Throwable, @Nullable ir.tapsell.core.internal.log.LogLevel);
+    method @NonNull public ir.tapsell.core.internal.log.TapsellLogger.AggregatedLogItem aggregate(@NonNull java.lang.String, @NonNull ir.tapsell.core.utils.common.Time, @NonNull kotlin.jvm.functions.Function1<? super ir.tapsell.core.internal.log.TapsellLogger.AggregatedLogItem,kotlin.Unit>);
+    method @NonNull public ir.tapsell.core.internal.log.TapsellLogger.AggregatedLogItem aggregate(@NonNull java.lang.String, long, @NonNull java.util.concurrent.TimeUnit, @NonNull kotlin.jvm.functions.Function1<? super ir.tapsell.core.internal.log.TapsellLogger.AggregatedLogItem,kotlin.Unit>);
+    method @NonNull public java.util.List<ir.tapsell.core.internal.log.TapsellLogger.LogItem> getLogs();
+  }
+
+  public class TapsellLogger.LogItem {
+    ctor public TapsellLogger.LogItem(@Nullable java.lang.String, @NonNull java.util.Set<ir.tapsell.core.internal.log.Tag>, @NonNull ir.tapsell.core.internal.log.LogLevel, @Nullable java.lang.Throwable, @Nullable ir.tapsell.core.internal.log.LogLevel, @NonNull java.util.Map<java.lang.String,?>);
+    method @NonNull public ir.tapsell.core.internal.log.TapsellLogger.LogItem aggregate(@NonNull java.lang.String, @NonNull ir.tapsell.core.utils.common.Time, @NonNull kotlin.jvm.functions.Function1<? super ir.tapsell.core.internal.log.TapsellLogger.AggregatedLogItem,kotlin.Unit>);
+    method @NonNull public ir.tapsell.core.internal.log.TapsellLogger.LogItem aggregate(@NonNull java.lang.String, long, @NonNull java.util.concurrent.TimeUnit, @NonNull kotlin.jvm.functions.Function1<? super ir.tapsell.core.internal.log.TapsellLogger.AggregatedLogItem,kotlin.Unit>);
+    method @NonNull public final ir.tapsell.core.internal.log.TapsellLogger.LogItem culprit(@NonNull java.lang.String);
+    method @NonNull public final ir.tapsell.core.internal.log.TapsellLogger.LogItem doNotReportToSentry();
+    method @NonNull public final ir.tapsell.core.internal.log.TapsellLogger.LogItem forceLogCatLogDataInclusion();
+    method @Nullable public final java.lang.String getAggregationKey$core_release();
+    method @Nullable public final java.lang.Long getAggregationTime$core_release();
+    method @Nullable public final kotlin.jvm.functions.Function1<ir.tapsell.core.internal.log.TapsellLogger.AggregatedLogItem,kotlin.Unit> getAggregator$core_release();
+    method @Nullable public final java.lang.String getCulprit();
+    method public final boolean getForceNotReport();
+    method public final boolean getForceReport();
+    method @NonNull public final ir.tapsell.core.internal.log.LogLevel getLevel();
+    method public final boolean getLogCatForceDataInclusion();
+    method @Nullable public final ir.tapsell.core.internal.log.LogLevel getLogCatLevel();
+    method @NonNull public final java.util.Map<java.lang.String,java.lang.Object> getLogData();
+    method @Nullable public final java.lang.String getMessage();
+    method @NonNull public final java.util.Set<ir.tapsell.core.internal.log.Tag> getTags();
+    method @Nullable public final java.lang.Throwable getThrowable();
+    method @NonNull public final java.util.Date getTimestamp();
+    method public final boolean isBreadcrumb();
+    method public final void log();
+    method @NonNull public ir.tapsell.core.internal.log.TapsellLogger.LogItem message(@NonNull java.lang.String);
+    method @NonNull public final ir.tapsell.core.internal.log.TapsellLogger.LogItem reportToSentry();
+    method public final void setAggregationKey$core_release(@Nullable java.lang.String);
+    method public final void setAggregationTime$core_release(@Nullable java.lang.Long);
+    method public final void setAggregator$core_release(@Nullable kotlin.jvm.functions.Function1<? super ir.tapsell.core.internal.log.TapsellLogger.AggregatedLogItem,kotlin.Unit>);
+    method public final void setBreadcrumb$core_release(boolean);
+    method public final void setCulprit$core_release(@Nullable java.lang.String);
+    method public final void setForceNotReport$core_release(boolean);
+    method public final void setForceReport$core_release(boolean);
+    method public final void setLogCatLevel(@Nullable ir.tapsell.core.internal.log.LogLevel);
+    method public final void setLogData(@NonNull java.util.Map<java.lang.String,?>);
+    method public final void setMessage(@Nullable java.lang.String);
+    method public final void setTags(@NonNull java.util.Set<ir.tapsell.core.internal.log.Tag>);
+    method public final void setThrowable(@Nullable java.lang.Throwable);
+    method @NonNull public final ir.tapsell.core.internal.log.TapsellLogger.LogItem useLogCatLevel(@NonNull ir.tapsell.core.internal.log.LogLevel);
+    method @NonNull public final ir.tapsell.core.internal.log.TapsellLogger.LogItem withBreadcrumb();
+    method @NonNull public ir.tapsell.core.internal.log.TapsellLogger.LogItem withData(@NonNull java.lang.String, @Nullable java.lang.Object);
+    method @NonNull public final ir.tapsell.core.internal.log.TapsellLogger.LogItem withError(@NonNull java.lang.Throwable);
+    method @NonNull public final ir.tapsell.core.internal.log.TapsellLogger.LogItem withTag-QRwfTMA(@NonNull java.lang.String);
+    method @NonNull public final ir.tapsell.core.internal.log.TapsellLogger.LogItem withTags(@NonNull ir.tapsell.core.internal.log.Tag[]);
+  }
+
+  public final class TapsellLoggerKt {
+    ctor public TapsellLoggerKt();
+  }
+
+  public final class Tlog extends ir.tapsell.core.internal.log.TapsellLogger {
+    method public void addLogListener(@NonNull kotlin.jvm.functions.Function6<? super java.lang.String,? super java.util.Set<ir.tapsell.core.internal.log.Tag>,? super java.lang.String,? super java.lang.Throwable,? super java.lang.String,? super java.util.Map<java.lang.String,?>,kotlin.Unit>);
+    field @NonNull public static final ir.tapsell.core.internal.log.Tlog INSTANCE;
+  }
+
+}
+
+package ir.tapsell.core.internal.task {
+
+  public abstract class BasicTapsellTask implements ir.tapsell.core.internal.task.TapsellTask {
+    ctor public BasicTapsellTask(@NonNull java.lang.String, @NonNull android.content.Context, @NonNull androidx.work.WorkerParameters);
+    method @NonNull public java.lang.String getTaskName();
+    method @NonNull public androidx.work.WorkerParameters getWorkerParams();
+    method public final boolean isFinalAttempt();
+    method public void onMaximumRetriesReached();
+    method public abstract void perform(@NonNull ir.tapsell.core.internal.task.TaskResult);
+    method @NonNull public com.google.common.util.concurrent.ListenableFuture<androidx.work.ListenableWorker.Result> startWork();
+  }
+
+  public abstract class CoroutineTapsellTask implements ir.tapsell.core.internal.task.TapsellTask {
+    ctor public CoroutineTapsellTask(@NonNull java.lang.String, @NonNull android.content.Context, @NonNull androidx.work.WorkerParameters);
+    method @Nullable public java.lang.Object doWork(@NonNull kotlin.coroutines.Continuation<? super androidx.work.ListenableWorker.Result>);
+    method @NonNull public java.lang.String getTaskName();
+    method @NonNull public androidx.work.WorkerParameters getWorkerParams();
+    method public final boolean isFinalAttempt();
+    method public void onMaximumRetriesReached();
+    method @Nullable public abstract java.lang.Object perform(@NonNull kotlin.coroutines.Continuation<? super ir.tapsell.core.internal.task.CoroutineTapsellTask.TaskResult>);
+  }
+
+  public static interface CoroutineTapsellTask.TaskResult {
+  }
+
+  public static final class CoroutineTapsellTask.TaskResult.Failure implements ir.tapsell.core.internal.task.CoroutineTapsellTask.TaskResult {
+    ctor public CoroutineTapsellTask.TaskResult.Failure();
+    ctor public CoroutineTapsellTask.TaskResult.Failure(@Nullable java.lang.Throwable);
+    method @Nullable public java.lang.Throwable component1();
+    method @NonNull public ir.tapsell.core.internal.task.CoroutineTapsellTask.TaskResult.Failure copy(@Nullable java.lang.Throwable);
+    method public boolean equals(@Nullable java.lang.Object);
+    method @Nullable public java.lang.Throwable getError();
+    method public int hashCode();
+    method @NonNull public java.lang.String toString();
+  }
+
+  public static final class CoroutineTapsellTask.TaskResult.Retry implements ir.tapsell.core.internal.task.CoroutineTapsellTask.TaskResult {
+    field @NonNull public static final ir.tapsell.core.internal.task.CoroutineTapsellTask.TaskResult.Retry INSTANCE;
+  }
+
+  public static final class CoroutineTapsellTask.TaskResult.Success implements ir.tapsell.core.internal.task.CoroutineTapsellTask.TaskResult {
+    field @NonNull public static final ir.tapsell.core.internal.task.CoroutineTapsellTask.TaskResult.Success INSTANCE;
+  }
+
+  public abstract class OneTimeTaskOptions extends ir.tapsell.core.internal.task.TaskOptions {
+    ctor public OneTimeTaskOptions();
+    method @Nullable public androidx.work.ExistingWorkPolicy existingWorkPolicy();
+  }
+
+  public abstract class PeriodicTaskOptions extends ir.tapsell.core.internal.task.TaskOptions {
+    ctor public PeriodicTaskOptions();
+    method @Nullable public androidx.work.ExistingPeriodicWorkPolicy existingWorkPolicy();
+    method @NonNull public abstract ir.tapsell.core.utils.common.Time flexibilityTime();
+    method @NonNull public abstract ir.tapsell.core.utils.common.Time repeatInterval();
+  }
+
+  public interface TapsellTask {
+    method @NonNull public java.lang.String getTaskName();
+    method @NonNull public androidx.work.WorkerParameters getWorkerParams();
+    field @NonNull public static final ir.tapsell.core.internal.task.TapsellTask.tpsla Companion;
+    field @NonNull public static final java.lang.String DATA_MAX_ATTEMPTS_COUNT = "%max_attempts_count";
+    field @NonNull public static final java.lang.String DATA_TASK_NAME = "%task_name";
+  }
+
+  public static final class TapsellTask.tpsla {
+    ctor public TapsellTask.tpsla();
+  }
+
+  public final class TapsellTaskKt {
+    ctor public TapsellTaskKt();
+    method @NonNull public static androidx.work.Data taskDataOf(@NonNull kotlin.Pair<java.lang.String,?>...);
+  }
+
+  public abstract class TaskOptions {
+    ctor public TaskOptions();
+    method @Nullable public ir.tapsell.core.utils.common.Time backoffDelay();
+    method @Nullable public androidx.work.BackoffPolicy backoffPolicy();
+    method public int maxAttemptsCount();
+    method @NonNull public abstract androidx.work.NetworkType networkType();
+    method @NonNull public abstract kotlin.reflect.KClass<? extends androidx.work.ListenableWorker> task();
+    method @Nullable public java.lang.String taskId();
+  }
+
+  public final class TaskResult {
+    ctor public TaskResult(@NonNull kotlin.jvm.functions.Function0<kotlin.Unit>, @NonNull kotlin.jvm.functions.Function0<kotlin.Unit>, @NonNull kotlin.jvm.functions.Function0<kotlin.Unit>);
+    method public void failure();
+    method public void retry();
+    method public void success();
+  }
+
+  public final class TaskScheduler {
+    ctor public TaskScheduler(@NonNull android.content.Context, @NonNull ir.tapsell.core.internal.CoreLifecycle, @NonNull ir.tapsell.core.internal.TapsellStorage);
+    method public void cancelTask(@NonNull ir.tapsell.core.internal.task.TaskOptions);
+    method public void cancelTask(@NonNull java.lang.String);
+    method public void schedulePeriodicTask(@NonNull ir.tapsell.core.internal.task.PeriodicTaskOptions, @Nullable androidx.work.Data);
+    method public void scheduleTask(@NonNull ir.tapsell.core.internal.task.OneTimeTaskOptions, @Nullable java.lang.String, @Nullable androidx.work.Data, @Nullable ir.tapsell.core.utils.common.Time);
+    field @NonNull public static final ir.tapsell.core.internal.task.TaskScheduler.tpsla Companion;
+    field @NonNull public static final java.lang.String DEFAULT_WORK_TAG = "tapsell";
+  }
+
+  public static final class TaskScheduler.tpsla {
+    ctor public TaskScheduler.tpsla();
+  }
+
+  public final class tpsla {
+    ctor public tpsla(ir.tapsell.core.internal.task.BasicTapsellTask, androidx.concurrent.futures.CallbackToFutureAdapter.Completer<androidx.work.ListenableWorker.Result>);
+    method public java.lang.Object invoke();
+  }
+
+  public final class tpslb {
+    ctor public tpslb(ir.tapsell.core.internal.task.BasicTapsellTask, ir.tapsell.core.internal.task.tpsla, androidx.concurrent.futures.CallbackToFutureAdapter.Completer);
+    method public java.lang.Object invoke();
+  }
+
+  public final class tpslc {
+    ctor public tpslc(ir.tapsell.core.internal.task.BasicTapsellTask, androidx.concurrent.futures.CallbackToFutureAdapter.Completer<androidx.work.ListenableWorker.Result>);
+    method public java.lang.Object invoke();
+  }
+
+}
+
+package ir.tapsell.core.moshi {
+
+  public final class TapsellMoshi {
+    ctor public TapsellMoshi();
+    ctor public TapsellMoshi(@NonNull com.squareup.moshi.Moshi);
+    method @NonNull public <T> com.squareup.moshi.JsonAdapter<T> adapter(@NonNull java.lang.Class<T>);
+    method @NonNull public <T> com.squareup.moshi.JsonAdapter<T> adapter(@NonNull java.lang.reflect.Type);
+    method public void enhance(@NonNull kotlin.jvm.functions.Function1<? super com.squareup.moshi.Moshi.Builder,kotlin.Unit>);
+    method @NonNull public ir.tapsell.core.moshi.TapsellMoshi extend(@NonNull kotlin.jvm.functions.Function1<? super com.squareup.moshi.Moshi.Builder,kotlin.Unit>);
+    method public <T> T fromJson(@NonNull java.lang.Class<T>, @NonNull java.lang.String);
+    method @NonNull public com.squareup.moshi.Moshi getMoshi();
+    method public void setMoshi(@NonNull com.squareup.moshi.Moshi);
+    method @NonNull public <T> java.lang.String toJson(@NonNull java.lang.Class<T>, T);
+  }
+
+}
+
+package ir.tapsell.core.network {
+
+  @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME) @kotlin.annotation.Retention(kotlin.annotation.AnnotationRetention.RUNTIME) public @interface Gzip {
+  }
+
+  @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME) @java.lang.annotation.Target({java.lang.annotation.ElementType.METHOD}) @kotlin.annotation.Retention(kotlin.annotation.AnnotationRetention.RUNTIME) @kotlin.annotation.Target(allowedTargets={kotlin.annotation.AnnotationTarget.FUNCTION}) public @interface NoStandardHeaders {
+    method public abstract ir.tapsell.core.network.NoStandardHeaders.Info[] only() default {};
+  }
+
+  public enum NoStandardHeaders.Info {
+    enum_constant public static final ir.tapsell.core.network.NoStandardHeaders.Info Platform;
+    enum_constant public static final ir.tapsell.core.network.NoStandardHeaders.Info SdkVersion;
+    enum_constant public static final ir.tapsell.core.network.NoStandardHeaders.Info UserId;
+  }
+
+  public final class ServiceGenerator {
+    ctor public ServiceGenerator(@NonNull okhttp3.OkHttpClient);
+    method public <T> T createService(@NonNull java.lang.String, @NonNull java.lang.Class<T>, @NonNull ir.tapsell.core.moshi.TapsellMoshi);
+  }
+
+  public final class tpsla {
+    ctor public tpsla(@NonNull ir.tapsell.core.tpslau);
+    method @NonNull public okhttp3.Response intercept(@NonNull okhttp3.Interceptor.Chain);
+    field @NonNull public final ir.tapsell.core.tpslau tpsla;
+  }
+
+  public final class tpslb {
+    ctor public tpslb();
+    field @NonNull public static final java.util.Set<ir.tapsell.core.network.NoStandardHeaders.Info> tpsla;
+  }
+
+}
+
+package ir.tapsell.core.network.model {
+
+  public final class DeviceInfoModel {
+    ctor public DeviceInfoModel(@NonNull java.lang.String, int, @NonNull java.lang.String, @Nullable java.lang.String, @Nullable java.lang.String, @Nullable java.lang.Integer, @Nullable java.lang.Long, @Nullable java.lang.String, @Nullable java.lang.String, @Nullable java.lang.String, @Nullable java.lang.String, @Nullable java.lang.String, @Nullable java.lang.String, @Nullable java.lang.Boolean, @Nullable java.lang.String, @Nullable java.lang.String, @Nullable java.lang.String, @Nullable java.lang.String, @Nullable java.lang.String, @Nullable java.lang.Integer, @Nullable java.lang.Integer, @Nullable java.lang.Integer, @Nullable java.lang.Integer, @Nullable java.lang.String, @Nullable java.lang.String, @Nullable java.lang.Integer, @Nullable java.lang.String, @Nullable java.lang.String, @Nullable java.lang.String, @Nullable java.lang.String, @Nullable java.lang.Long);
+    method @NonNull public java.lang.String component1();
+    method @Nullable public java.lang.String component10();
+    method @Nullable public java.lang.String component11();
+    method @Nullable public java.lang.String component12();
+    method @Nullable public java.lang.String component13();
+    method @Nullable public java.lang.Boolean component14();
+    method @Nullable public java.lang.String component15();
+    method @Nullable public java.lang.String component16();
+    method @Nullable public java.lang.String component17();
+    method @Nullable public java.lang.String component18();
+    method @Nullable public java.lang.String component19();
+    method public int component2();
+    method @Nullable public java.lang.Integer component20();
+    method @Nullable public java.lang.Integer component21();
+    method @Nullable public java.lang.Integer component22();
+    method @Nullable public java.lang.Integer component23();
+    method @Nullable public java.lang.String component24();
+    method @Nullable public java.lang.String component25();
+    method @Nullable public java.lang.Integer component26();
+    method @Nullable public java.lang.String component27();
+    method @Nullable public java.lang.String component28();
+    method @Nullable public java.lang.String component29();
+    method @NonNull public java.lang.String component3();
+    method @Nullable public java.lang.String component30();
+    method @Nullable public java.lang.Long component31();
+    method @Nullable public java.lang.String component4();
+    method @Nullable public java.lang.String component5();
+    method @Nullable public java.lang.Integer component6();
+    method @Nullable public java.lang.Long component7();
+    method @Nullable public java.lang.String component8();
+    method @Nullable public java.lang.String component9();
+    method @NonNull public ir.tapsell.core.network.model.DeviceInfoModel copy(@NonNull java.lang.String, int, @NonNull java.lang.String, @Nullable java.lang.String, @Nullable java.lang.String, @Nullable java.lang.Integer, @Nullable java.lang.Long, @Nullable java.lang.String, @Nullable java.lang.String, @Nullable java.lang.String, @Nullable java.lang.String, @Nullable java.lang.String, @Nullable java.lang.String, @Nullable java.lang.Boolean, @Nullable java.lang.String, @Nullable java.lang.String, @Nullable java.lang.String, @Nullable java.lang.String, @Nullable java.lang.String, @Nullable java.lang.Integer, @Nullable java.lang.Integer, @Nullable java.lang.Integer, @Nullable java.lang.Integer, @Nullable java.lang.String, @Nullable java.lang.String, @Nullable java.lang.Integer, @Nullable java.lang.String, @Nullable java.lang.String, @Nullable java.lang.String, @Nullable java.lang.String, @Nullable java.lang.Long);
+    method public boolean equals(@Nullable java.lang.Object);
+    method @Nullable public java.lang.String getAdjustId();
+    method @Nullable public java.lang.String getAdvertisingId();
+    method @Nullable public java.lang.String getAmazonFireAdvertisingId();
+    method @Nullable public java.lang.Integer getAmazonFireLimitAdTracking();
+    method @Nullable public java.lang.String getAndroidId();
+    method @Nullable public java.lang.String getAppSetId();
+    method @Nullable public java.lang.Integer getAppSetScope();
+    method @Nullable public java.lang.Long getAppVersionCode();
+    method @Nullable public java.lang.String getAppVersionName();
+    method @Nullable public java.lang.String getBootloaderVersion();
+    method @Nullable public java.lang.String getCpuAbi();
+    method @NonNull public java.lang.String getDevelopmentPlatform();
+    method @Nullable public java.lang.String getDeviceBoard();
+    method @Nullable public java.lang.String getDeviceBrand();
+    method @Nullable public java.lang.String getDeviceDesignName();
+    method @Nullable public java.lang.String getDeviceDisplayName();
+    method @Nullable public java.lang.String getDeviceLanguage();
+    method @Nullable public java.lang.String getDeviceManufacturer();
+    method @Nullable public java.lang.String getDeviceModel();
+    method @NonNull public java.lang.String getDeviceOs();
+    method public int getDeviceOsVersion();
+    method @Nullable public java.lang.String getDeviceProduct();
+    method @Nullable public java.lang.String getFaceBookAttributionId();
+    method @Nullable public java.lang.Long getGmsVersion();
+    method @Nullable public java.lang.String getImei();
+    method @Nullable public java.lang.Boolean getLimitAdTrackingEnabled();
+    method @Nullable public java.lang.String getPackageName();
+    method @Nullable public java.lang.Integer getScreenDensity();
+    method @Nullable public java.lang.Integer getScreenHeight();
+    method @Nullable public java.lang.Integer getScreenLayoutSize();
+    method @Nullable public java.lang.Integer getScreenWidth();
+    method public int hashCode();
+    method @NonNull public java.lang.String toString();
+  }
+
+  public final class DeviceInfoModelJsonAdapter {
+    ctor public DeviceInfoModelJsonAdapter(@NonNull com.squareup.moshi.Moshi);
+    method public java.lang.Object fromJson(com.squareup.moshi.JsonReader);
+    method public void toJson(com.squareup.moshi.JsonWriter, java.lang.Object);
+    method @NonNull public java.lang.String toString();
+    field @NonNull public final com.squareup.moshi.JsonReader.Options tpsla;
+    field @NonNull public final com.squareup.moshi.JsonAdapter<java.lang.String> tpslb;
+    field @NonNull public final com.squareup.moshi.JsonAdapter<java.lang.Integer> tpslc;
+    field @NonNull public final com.squareup.moshi.JsonAdapter<java.lang.String> tpsld;
+    field @NonNull public final com.squareup.moshi.JsonAdapter<java.lang.Integer> tpsle;
+    field @NonNull public final com.squareup.moshi.JsonAdapter<java.lang.Long> tpslf;
+    field @NonNull public final com.squareup.moshi.JsonAdapter<java.lang.Boolean> tpslg;
+  }
+
+  public final class DeviceInfoModelProvider {
+    ctor public DeviceInfoModelProvider(@NonNull ir.tapsell.core.utils.DeviceInfoHelper, @NonNull ir.tapsell.core.utils.DeviceIdHelper, @NonNull ir.tapsell.core.utils.ApplicationInfoHelper, @NonNull ir.tapsell.core.utils.GoogleServicesHelper, @NonNull android.content.Context);
+    method @NonNull public ir.tapsell.core.network.model.DeviceInfoModel getDeviceInfo();
+  }
+
+  public final class UserIdRequest {
+    ctor public UserIdRequest(@NonNull ir.tapsell.core.network.model.DeviceInfoModel);
+    method @NonNull public ir.tapsell.core.network.model.UserIdRequest copy(@NonNull ir.tapsell.core.network.model.DeviceInfoModel);
+    method public boolean equals(@Nullable java.lang.Object);
+    method public int hashCode();
+    method @NonNull public java.lang.String toString();
+    field @NonNull public final ir.tapsell.core.network.model.DeviceInfoModel tpsla;
+  }
+
+  public final class UserIdRequestJsonAdapter {
+    ctor public UserIdRequestJsonAdapter(@NonNull com.squareup.moshi.Moshi);
+    method public java.lang.Object fromJson(com.squareup.moshi.JsonReader);
+    method public void toJson(com.squareup.moshi.JsonWriter, java.lang.Object);
+    method @NonNull public java.lang.String toString();
+    field @NonNull public final com.squareup.moshi.JsonReader.Options tpsla;
+    field @NonNull public final com.squareup.moshi.JsonAdapter<ir.tapsell.core.network.model.DeviceInfoModel> tpslb;
+  }
+
+  public final class UserIdResponse {
+    ctor public UserIdResponse(@NonNull java.lang.String);
+    method @NonNull public ir.tapsell.core.network.model.UserIdResponse copy(@NonNull java.lang.String);
+    method public boolean equals(@Nullable java.lang.Object);
+    method public int hashCode();
+    method @NonNull public java.lang.String toString();
+    field @NonNull public final java.lang.String tpsla;
+  }
+
+  public final class UserIdResponseJsonAdapter {
+    ctor public UserIdResponseJsonAdapter(@NonNull com.squareup.moshi.Moshi);
+    method public java.lang.Object fromJson(com.squareup.moshi.JsonReader);
+    method public void toJson(com.squareup.moshi.JsonWriter, java.lang.Object);
+    method @NonNull public java.lang.String toString();
+    field @NonNull public final com.squareup.moshi.JsonReader.Options tpsla;
+    field @NonNull public final com.squareup.moshi.JsonAdapter<java.lang.String> tpslb;
+  }
+
+}
+
+package ir.tapsell.core.tasks {
+
+  public final class ConfigFetchTask extends ir.tapsell.core.internal.task.BasicTapsellTask {
+    ctor public ConfigFetchTask(@NonNull android.content.Context, @NonNull androidx.work.WorkerParameters);
+    method public void perform(@NonNull ir.tapsell.core.internal.task.TaskResult);
+    field @NonNull public static final java.lang.String CONFIG_UPDATE_TASK_ID = "tapsell_config_fetch_task";
+    field @NonNull public static final ir.tapsell.core.tasks.ConfigFetchTask.tpsla Companion;
+  }
+
+  public static final class ConfigFetchTask.tpsla {
+    ctor public ConfigFetchTask.tpsla();
+  }
+
+  public static final class ConfigFetchTask.tpslb extends ir.tapsell.core.internal.task.OneTimeTaskOptions {
+    ctor public ConfigFetchTask.tpslb();
+    method @NonNull public androidx.work.NetworkType networkType();
+    method @NonNull public kotlin.reflect.KClass<ir.tapsell.core.tasks.ConfigFetchTask> task();
+    field @NonNull public static final ir.tapsell.core.tasks.ConfigFetchTask.tpslb tpsla;
+  }
+
+  public static final class ConfigFetchTask.tpslc extends ir.tapsell.core.internal.task.PeriodicTaskOptions {
+    ctor public ConfigFetchTask.tpslc(@NonNull ir.tapsell.core.utils.common.Time);
+    method @NonNull public ir.tapsell.core.utils.common.Time flexibilityTime();
+    method @NonNull public androidx.work.NetworkType networkType();
+    method @NonNull public ir.tapsell.core.utils.common.Time repeatInterval();
+    method @NonNull public kotlin.reflect.KClass<ir.tapsell.core.tasks.ConfigFetchTask> task();
+    field @NonNull public final ir.tapsell.core.utils.common.Time tpsla;
+  }
+
+  public final class UserIdRequestTask extends ir.tapsell.core.internal.task.CoroutineTapsellTask {
+    ctor public UserIdRequestTask(@NonNull android.content.Context, @NonNull androidx.work.WorkerParameters);
+    method @NonNull public ir.tapsell.core.tpsly getNetworkCourier();
+    method @Nullable public java.lang.Object perform(@NonNull kotlin.coroutines.Continuation<? super ir.tapsell.core.internal.task.CoroutineTapsellTask.TaskResult>);
+    method public void setNetworkCourier(@NonNull ir.tapsell.core.tpsly);
+    field @NonNull public static final ir.tapsell.core.tasks.UserIdRequestTask.tpsla Companion;
+    field @NonNull public static final java.lang.String TASK_ID = "tapsell_user_id_fetch_task";
+    field public ir.tapsell.core.tpsly networkCourier;
+  }
+
+  public static final class UserIdRequestTask.tpsla {
+    ctor public UserIdRequestTask.tpsla();
+  }
+
+  public static final class UserIdRequestTask.tpslb extends ir.tapsell.core.internal.task.OneTimeTaskOptions {
+    ctor public UserIdRequestTask.tpslb();
+    method @NonNull public androidx.work.NetworkType networkType();
+    method @NonNull public kotlin.reflect.KClass<ir.tapsell.core.tasks.UserIdRequestTask> task();
+    field @NonNull public static final ir.tapsell.core.tasks.UserIdRequestTask.tpslb tpsla;
+  }
+
+  public static final class UserIdRequestTask.tpslc extends ir.tapsell.core.internal.task.PeriodicTaskOptions {
+    ctor public UserIdRequestTask.tpslc(@NonNull ir.tapsell.core.utils.common.Time);
+    method @NonNull public ir.tapsell.core.utils.common.Time flexibilityTime();
+    method @NonNull public androidx.work.NetworkType networkType();
+    method @NonNull public ir.tapsell.core.utils.common.Time repeatInterval();
+    method @NonNull public kotlin.reflect.KClass<ir.tapsell.core.tasks.UserIdRequestTask> task();
+    field @NonNull public final ir.tapsell.core.utils.common.Time tpsla;
+  }
+
+}
+
+package ir.tapsell.core.user {
+
+  public final class UserIdProvider {
+    ctor public UserIdProvider(@NonNull ir.tapsell.core.internal.CoreLifecycle, @NonNull ir.tapsell.core.tpslau, @NonNull ir.tapsell.core.internal.task.TaskScheduler, @NonNull ir.tapsell.core.internal.CoreConfig);
+    method public static void access$scheduleUserIdFetchPeriodicTaskIfEnabled(ir.tapsell.core.user.UserIdProvider);
+    method public void captureUserId$core_release();
+    method @Nullable public java.lang.String getUserId$core_release();
+    method public boolean isUserIdChanged();
+    method public void updateUserId$core_release(@NonNull java.lang.String);
+    field @NonNull public final ir.tapsell.core.internal.CoreLifecycle tpsla;
+    field @NonNull public final ir.tapsell.core.tpslau tpslb;
+    field @NonNull public final ir.tapsell.core.internal.task.TaskScheduler tpslc;
+    field @NonNull public final ir.tapsell.core.internal.CoreConfig tpsld;
+  }
+
+}
+
+package ir.tapsell.core.utils {
+
+  public final class AdvertisingInfo {
+    ctor public AdvertisingInfo(@Nullable java.lang.String, @Nullable java.lang.Boolean);
+    method @Nullable public java.lang.String component1();
+    method @Nullable public java.lang.Boolean component2();
+    method @NonNull public ir.tapsell.core.utils.AdvertisingInfo copy(@Nullable java.lang.String, @Nullable java.lang.Boolean);
+    method public boolean equals(@Nullable java.lang.Object);
+    method @Nullable public java.lang.String getId();
+    method public int hashCode();
+    method @Nullable public java.lang.Boolean isLimitAdTrackingEnabled();
+    method @NonNull public java.lang.String toString();
+  }
+
+  public final class ApplicationInfoHelper {
+    ctor public ApplicationInfoHelper(@NonNull android.content.Context);
+    method @Nullable public java.lang.Integer getApplicationMinSDKVersion(@NonNull java.lang.String);
+    method @Nullable public java.lang.Integer getApplicationTargetSDKVersion(@NonNull java.lang.String);
+    method @Nullable public java.lang.String getApplicationVersion(@NonNull java.lang.String);
+    method @Nullable public java.lang.Long getApplicationVersionCode(@NonNull java.lang.String);
+    method @NonNull public java.util.Map<java.lang.String,java.lang.Boolean> getAppsInstallationStatus();
+    method @Nullable public java.lang.String getInstallerPackageName(@NonNull java.lang.String);
+    method @Nullable public android.os.Bundle getManifestMetaData(@Nullable java.lang.String);
+    method @Nullable public android.content.pm.PackageInfo getPackageInfo(@NonNull java.lang.String);
+    method public boolean isAppInstalledFromGooglePlay(@NonNull java.lang.String);
+    method @NonNull public java.lang.String label();
+    method @NonNull public java.lang.String packagee();
+  }
+
+  public final class CacheablePropertyKt {
+    ctor public CacheablePropertyKt();
+    method @NonNull public static <T> kotlin.properties.ReadOnlyProperty<java.lang.Object,T> cacheable(@NonNull kotlin.properties.Delegates, @NonNull kotlin.jvm.functions.Function0<? extends java.lang.Object[]>, @NonNull kotlin.jvm.functions.Function0<? extends T>);
+    method @NonNull public static <S, T> kotlin.properties.ReadOnlyProperty<java.lang.Object,T> cacheable(@NonNull kotlin.properties.Delegates, @NonNull kotlin.jvm.functions.Function0<? extends S>, @NonNull kotlin.jvm.functions.Function1<? super S,? extends T>);
+  }
+
+  public final class DeviceIdHelper {
+    ctor public DeviceIdHelper(@NonNull android.content.Context);
+    method @Nullable public java.lang.String getAndroidId();
+  }
+
+  public final class DeviceInfoHelper {
+    ctor public DeviceInfoHelper(@NonNull android.content.Context);
+    method @Nullable public java.lang.String getBootloaderVersion();
+    method @Nullable public java.lang.String getCpuAbi();
+    method @Nullable public java.lang.String getDeviceBoard();
+    method @Nullable public java.lang.String getDeviceBrand();
+    method @Nullable public java.lang.String getDeviceDesignName();
+    method @Nullable public java.lang.String getDeviceDisplayName();
+    method @Nullable public java.lang.String getDeviceLanguage();
+    method @Nullable public java.lang.String getDeviceManufacturer();
+    method @Nullable public java.lang.String getDeviceModel();
+    method @Nullable public java.lang.String getDeviceProductName();
+    method @Nullable public java.lang.String getOSVersion();
+    method public int getOSVersionCode();
+    method @Nullable public java.lang.String getProcessorArchitecture();
+    method @Nullable public java.lang.Integer getScreenDensity();
+    method @Nullable public java.lang.Integer getScreenLayoutSize();
+    method @Nullable public java.lang.String getScreenOrientation();
+    method @NonNull public android.graphics.Point getScreenSize();
+    method public boolean isRooted();
+  }
+
+  public final class GoogleServicesHelper {
+    ctor public GoogleServicesHelper(@NonNull android.content.Context, @NonNull ir.tapsell.core.utils.ApplicationInfoHelper);
+    method public void fetchInfo();
+    method @Nullable public ir.tapsell.core.utils.AdvertisingInfo getAdvertisingInfo();
+    method @Nullable public ir.tapsell.core.tpsld getApplicationSetInfo();
+    method @Nullable public ir.tapsell.core.tpslx getMobileServiceInfo();
+    field @NonNull public static final ir.tapsell.core.utils.GoogleServicesHelper.tpsla Companion;
+  }
+
+  public static final class GoogleServicesHelper.tpsla {
+    ctor public GoogleServicesHelper.tpsla();
+  }
+
+  public final class MultiStepActionStateHolder {
+    ctor public MultiStepActionStateHolder(int);
+    method public void onFailure(int);
+    method public void onSuccess(int);
+    method public void wait(@NonNull kotlin.jvm.functions.Function1<? super java.lang.Boolean,kotlin.Unit>);
+  }
+
+}
+
+package ir.tapsell.core.utils.common {
+
+  @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME) @kotlin.annotation.Retention(kotlin.annotation.AnnotationRetention.RUNTIME) public @interface Days {
+  }
+
+  @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME) @kotlin.annotation.Retention(kotlin.annotation.AnnotationRetention.RUNTIME) public @interface Hours {
+  }
+
+  public final class IdGenerator {
+    method @NonNull public java.lang.String generateCustomId(int);
+    method @NonNull public java.lang.String generateId();
+    method public int generateIntegerId();
+    field @NonNull public static final ir.tapsell.core.utils.common.IdGenerator INSTANCE;
+  }
+
+  public final class LifecycleState {
+    ctor public LifecycleState();
+    method public void complete();
+    method public boolean isCompleted();
+    method public void wait(@NonNull kotlin.jvm.functions.Function0<kotlin.Unit>);
+  }
+
+  @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME) @kotlin.annotation.Retention(kotlin.annotation.AnnotationRetention.RUNTIME) public @interface Millis {
+  }
+
+  @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME) @kotlin.annotation.Retention(kotlin.annotation.AnnotationRetention.RUNTIME) public @interface Minutes {
+  }
+
+  public final class MultiStepLifecycleState {
+    ctor public MultiStepLifecycleState(@NonNull java.util.List<java.lang.String>);
+    method public void complete(@NonNull java.lang.String);
+    method public void wait(@Nullable java.lang.String, @NonNull kotlin.jvm.functions.Function0<kotlin.Unit>);
+  }
+
+  public final class RetrofitKt {
+    ctor public RetrofitKt();
+    method public static <T> void callBy(@NonNull retrofit2.Call<T>, @NonNull kotlin.jvm.functions.Function1<? super T,kotlin.Unit>, @NonNull kotlin.jvm.functions.Function1<? super java.lang.Throwable,kotlin.Unit>);
+  }
+
+  public final class RuntimeJsonAdapterFactory<T> {
+    ctor public RuntimeJsonAdapterFactory(@NonNull java.lang.Class<T>, @NonNull java.lang.String);
+    method @Nullable public com.squareup.moshi.JsonAdapter<?> create(@NonNull java.lang.reflect.Type, @NonNull java.util.Set<? extends java.lang.annotation.Annotation>, @NonNull com.squareup.moshi.Moshi);
+    method @NonNull public ir.tapsell.core.utils.common.RuntimeJsonAdapterFactory<T> registerDefaultSubtype(@NonNull java.lang.Class<? extends T>);
+    method @NonNull public ir.tapsell.core.utils.common.RuntimeJsonAdapterFactory<T> registerDefaultSubtype(@NonNull java.lang.Object);
+    method @NonNull public ir.tapsell.core.utils.common.RuntimeJsonAdapterFactory<T> registerSubtype(@NonNull java.lang.Class<? extends T>, @NonNull java.lang.String);
+    method @NonNull public ir.tapsell.core.utils.common.RuntimeJsonAdapterFactory<T> registerSubtype(@NonNull java.lang.Object, @NonNull java.lang.String);
+    field @NonNull public static final ir.tapsell.core.utils.common.RuntimeJsonAdapterFactory.Companion Companion;
+  }
+
+  public static final class RuntimeJsonAdapterFactory.Companion {
+    method @NonNull public <T> ir.tapsell.core.utils.common.RuntimeJsonAdapterFactory<T> of(@NonNull java.lang.Class<T>, @NonNull java.lang.String);
+  }
+
+  public static final class RuntimeJsonAdapterFactory.RuntimeJsonAdapter {
+    ctor public RuntimeJsonAdapterFactory.RuntimeJsonAdapter(@NonNull java.lang.String, @NonNull java.util.Map<java.lang.String,? extends com.squareup.moshi.JsonAdapter<java.lang.Object>>, @NonNull java.util.Map<java.lang.reflect.Type,java.lang.String>, @NonNull java.util.Map<java.lang.Object,java.lang.String>, @Nullable com.squareup.moshi.JsonAdapter<java.lang.Object>, @NonNull com.squareup.moshi.JsonAdapter<java.lang.Object>);
+    method @Nullable public java.lang.Object fromJson(@NonNull com.squareup.moshi.JsonReader);
+    method public void toJson(@NonNull com.squareup.moshi.JsonWriter, @Nullable java.lang.Object);
+    method @NonNull public java.lang.String toString();
+  }
+
+  @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME) @kotlin.annotation.Retention(kotlin.annotation.AnnotationRetention.RUNTIME) public @interface Seconds {
+  }
+
+  public final class TapsellAssertsKt {
+    ctor public TapsellAssertsKt();
+    method public static void assertCpuExecutor();
+    method public static void assertNotCpuExecutor();
+  }
+
+  public class Time {
+    ctor public Time(int, @NonNull java.util.concurrent.TimeUnit);
+    ctor public Time(long, @NonNull java.util.concurrent.TimeUnit);
+    method @NonNull public final ir.tapsell.core.utils.common.Time abs();
+    method @NonNull public final java.lang.String bestRepresentation();
+    method public final int compareTo(@NonNull ir.tapsell.core.utils.common.Time);
+    method public boolean equals(@Nullable java.lang.Object);
+    method public final long getTime();
+    method @NonNull public final java.util.concurrent.TimeUnit getTimeUnit();
+    method public int hashCode();
+    method @NonNull public final ir.tapsell.core.utils.common.Time minus(@NonNull ir.tapsell.core.utils.common.Time);
+    method @NonNull public final ir.tapsell.core.utils.common.Time plus(@NonNull ir.tapsell.core.utils.common.Time);
+    method public final long toDays();
+    method public final long toHours();
+    method public final long toMillis();
+    method public final long toMinutes();
+    method public final long toSeconds();
+    method @NonNull public java.lang.String toString();
+  }
+
+  public final class TimeAdapterFactory {
+    method @Nullable public com.squareup.moshi.JsonAdapter<?> create(@NonNull java.lang.reflect.Type, @NonNull java.util.Set<? extends java.lang.annotation.Annotation>, @NonNull com.squareup.moshi.Moshi);
+    field @NonNull public static final ir.tapsell.core.utils.common.TimeAdapterFactory INSTANCE;
+  }
+
+  public static final class TimeAdapterFactory.TimeAdapter {
+    ctor public TimeAdapterFactory.TimeAdapter(@NonNull java.lang.Object);
+    method @Nullable public ir.tapsell.core.utils.common.Time fromJson(@NonNull com.squareup.moshi.JsonReader);
+    method public void toJson(@NonNull com.squareup.moshi.JsonWriter, @Nullable ir.tapsell.core.utils.common.Time);
+  }
+
+  public final class TimeKt {
+    ctor public TimeKt();
+    method @NonNull public static ir.tapsell.core.utils.common.Time days(long);
+    method @NonNull public static ir.tapsell.core.utils.common.Time hours(long);
+    method @NonNull public static ir.tapsell.core.utils.common.Time millis(long);
+    method @NonNull public static ir.tapsell.core.utils.common.Time minutes(long);
+    method @NonNull public static ir.tapsell.core.utils.common.Time now();
+    method public static long nowMillis();
+    method @NonNull public static ir.tapsell.core.utils.common.Time seconds(long);
+    method @NonNull public static ir.tapsell.core.utils.common.Time secondsExponentialBackoff(int, int);
+  }
+
+  public final class UtilsKt {
+    ctor public UtilsKt();
+    method @Nullable public static java.lang.String toLowerCase(@Nullable java.lang.String);
+  }
+
+}
+
+package ir.tapsell.core.utils.common.di {
+
+  public interface FieldsInjector<T> {
+    method public void injectFields(T);
+  }
+
+  public interface Provider<T> {
+    method public T get();
+  }
+
+}
+
+package ir.tapsell.core.utils.common.rx {
+
+  public final class BehaviorRelay<T> extends ir.tapsell.core.utils.common.rx.Relay<T> {
+    ctor public BehaviorRelay();
+    ctor public BehaviorRelay(@Nullable T);
+    method public void accept(T);
+  }
+
+  public interface Consumer<T> {
+    method public void accept(T);
+  }
+
+  public final class Executor<T> {
+    ctor public Executor(@Nullable kotlin.jvm.functions.Function0<kotlin.Unit>, @NonNull kotlin.jvm.functions.Function1<? super T,kotlin.Unit>, @NonNull kotlin.jvm.functions.Function1<? super java.lang.Throwable,kotlin.Unit>);
+    method @Nullable public kotlin.jvm.functions.Function0<kotlin.Unit> component1();
+    method @NonNull public kotlin.jvm.functions.Function1<T,kotlin.Unit> component2();
+    method @NonNull public kotlin.jvm.functions.Function1<java.lang.Throwable,kotlin.Unit> component3();
+    method @NonNull public ir.tapsell.core.utils.common.rx.Executor<T> copy(@Nullable kotlin.jvm.functions.Function0<kotlin.Unit>, @NonNull kotlin.jvm.functions.Function1<? super T,kotlin.Unit>, @NonNull kotlin.jvm.functions.Function1<? super java.lang.Throwable,kotlin.Unit>);
+    method public boolean equals(@Nullable java.lang.Object);
+    method @NonNull public kotlin.jvm.functions.Function1<java.lang.Throwable,kotlin.Unit> getOnError();
+    method @NonNull public kotlin.jvm.functions.Function1<T,kotlin.Unit> getOnNext();
+    method @Nullable public kotlin.jvm.functions.Function0<kotlin.Unit> getOnSubscribe();
+    method public int hashCode();
+    method @NonNull public java.lang.String toString();
+  }
+
+  public final class Filter<T> {
+    ctor public Filter(@NonNull kotlin.jvm.functions.Function1<? super T,java.lang.Boolean>);
+    method @NonNull public kotlin.jvm.functions.Function1<T,java.lang.Boolean> getChecker();
+  }
+
+  public final class Observer<T> {
+    ctor public Observer(@NonNull ir.tapsell.core.utils.common.rx.Executor<T>, @NonNull java.util.List<ir.tapsell.core.utils.common.rx.Filter<T>>, @Nullable ir.tapsell.core.tpslm, @Nullable ir.tapsell.core.tpslar, int);
+    method public void onError(@NonNull java.lang.Throwable);
+    method public void onNext(T);
+    method public void onSubscribe();
+  }
+
+  public final class PublishRelay<T> extends ir.tapsell.core.utils.common.rx.Relay<T> {
+    ctor public PublishRelay();
+    method public void accept(T);
+  }
+
+  public abstract class Relay<T> implements ir.tapsell.core.utils.common.rx.Consumer<T> {
+    ctor public Relay();
+    method @NonNull public final ir.tapsell.core.utils.common.rx.Relay<T> debounce(@NonNull ir.tapsell.core.utils.common.Time);
+    method @NonNull public final ir.tapsell.core.utils.common.rx.Relay<T> emitEvery(int);
+    method @NonNull public final ir.tapsell.core.utils.common.rx.Relay<T> filter(@NonNull kotlin.jvm.functions.Function1<? super T,java.lang.Boolean>);
+    method public final void onNext(T);
+    method public void subscribe(@NonNull ir.tapsell.core.utils.common.rx.Observer<T>);
+    method public final void subscribe(@Nullable kotlin.jvm.functions.Function0<kotlin.Unit>, @NonNull kotlin.jvm.functions.Function1<? super java.lang.Throwable,kotlin.Unit>, @NonNull kotlin.jvm.functions.Function1<? super T,kotlin.Unit>);
+    method @NonNull public final ir.tapsell.core.utils.common.rx.Relay<T> throttleLast(@NonNull ir.tapsell.core.utils.common.Time);
+  }
+
+  public final class RxUtilsKt {
+    ctor public RxUtilsKt();
+    method public static <T> void justDo(@NonNull ir.tapsell.core.utils.common.rx.Relay<T>, @NonNull ir.tapsell.core.internal.log.Tag[], @Nullable kotlin.jvm.functions.Function1<? super T,kotlin.Unit>);
+  }
+
+}
+

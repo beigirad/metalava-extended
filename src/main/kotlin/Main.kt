@@ -1,37 +1,41 @@
 package org.example
 
+import com.android.tools.metalava.cli.common.ExecutionEnvironment
 import java.io.File
+
 
 fun main() {
     val jar = File("/Users/farhad/Projects/metalava/core-1.2.0.aar/classes.jar")
     val report = File("/Users/farhad/Projects/metalava/report.txt")
     val filteredReport = File("/Users/farhad/Projects/metalava/report-filtered.txt")
 
-    generateFullReport(
-        input = jar,
-        output = report
-    )
+    // because metalava kills the process
+    Runtime.getRuntime().addShutdownHook(Thread {
+        println("🔍 Metalava done with ${report.name} ...")
 
-    filterReport(
-        input = report,
-        output = filteredReport
-    )
+        filterReport(input = report, output = filteredReport)
 
-    println("✅ Filtered report written.")
+        println("✅ Filtered report written to: ${filteredReport.absolutePath}")
+    })
+
+    generateFullReport(input = jar, output = report)
 }
 
 fun generateFullReport(input: File, output: File) {
-    com.android.tools.metalava.main(
-        arrayOf(
-            "--source-files", input.absolutePath,
-            "--api", output.absolutePath,
+    println("🔍 Running Metalava on ${input.name} ...")
+    runCatching {
+        com.android.tools.metalava.main(
+            arrayOf(
+                "--source-files", input.absolutePath,
+                "--api", output.absolutePath,
+            )
         )
-    )
+    }
 }
 
 fun filterReport(input: File, output: File) {
     val lines = input.readLines()
-    val regex = Regex("tpsl")
+    val regex = Regex("tpsl", RegexOption.IGNORE_CASE)
 
     val result = mutableListOf<String>()
     var skipBlock = false
