@@ -1,14 +1,22 @@
 plugins {
     kotlin("jvm") version "2.1.21"
+    id("com.gradleup.shadow") version "9.2.2"
+    application
 }
 
-group = "org.example"
+group = "ir.beigirad"
 version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
     google()
 }
+
+application {
+    // Replace with your package and main class name
+    mainClass.set("ir.beigirad.MainKt")
+}
+
 
 dependencies {
     testImplementation(kotlin("test"))
@@ -17,6 +25,10 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+}
+
+tasks.shadowJar {
+    isZip64 = true
 }
 
 tasks.register("runMetalava", JavaExec::class.java) {
