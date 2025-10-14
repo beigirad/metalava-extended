@@ -1,11 +1,12 @@
-package org.example
+package ir.beigirad
 
-import com.android.tools.metalava.cli.common.ExecutionEnvironment
 import java.io.File
+import java.util.zip.ZipFile
 
 
 fun main() {
-    val jar = File("/Users/farhad/Projects/metalava/core-1.2.0.aar/classes.jar")
+    val file = File("/Users/farhad/Projects/metalava/core-release.aar")
+    val jar = prepareInputJar(file)
     val report = File("/Users/farhad/Projects/metalava/report.txt")
     val filteredReport = File("/Users/farhad/Projects/metalava/report-filtered.txt")
 
@@ -20,6 +21,27 @@ fun main() {
 
     generateFullReport(input = jar, output = report)
 }
+
+fun prepareInputJar(input: File): File =
+    if (input.extension == "aar") {
+        val extracted = File(input.parentFile, "classes-${input.nameWithoutExtension}.jar")
+        println("📦 Extracting classes.jar from ${input.name} ...")
+
+        ZipFile(input).use { zip ->
+            val entry = zip.getEntry("classes.jar")
+                ?: error("No classes.jar found inside ${input.name}")
+            zip.getInputStream(entry).use { inputStream ->
+                extracted.outputStream().use { outputStream ->
+                    inputStream.copyTo(outputStream)
+                }
+            }
+        }
+
+        println("✅ Extracted to ${extracted.absolutePath}")
+        extracted
+    } else {
+        input
+    }
 
 fun generateFullReport(input: File, output: File) {
     println("🔍 Running Metalava on ${input.name} ...")
