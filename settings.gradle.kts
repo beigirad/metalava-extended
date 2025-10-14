@@ -1,1 +1,1 @@
-rootProject.name = "metalava"
+rootProject.name = "metalava-extended"
