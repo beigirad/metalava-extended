@@ -1,19 +1,55 @@
 package org.example
 
-import com.android.tools.metalava.cli.common.ExecutionEnvironment
-import com.android.tools.metalava.cli.common.MetalavaConsole
+import java.io.File
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 fun main() {
-    val name = "Kotlin"
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    println("Hello, " + name + "!")
+    val jar = File("/Users/farhad/Projects/metalava/core-1.2.0.aar/classes.jar")
+    val report = File("/Users/farhad/Projects/metalava/report.txt")
+    val filteredReport = File("/Users/farhad/Projects/metalava/report-filtered.txt")
 
-    for (i in 1..5) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        println("i = $i")
+    generateFullReport(
+        input = jar,
+        output = report
+    )
+
+    filterReport(
+        input = report,
+        output = filteredReport
+    )
+
+    println("✅ Filtered report written.")
+}
+
+fun generateFullReport(input: File, output: File) {
+    com.android.tools.metalava.main(
+        arrayOf(
+            "--source-files", input.absolutePath,
+            "--api", output.absolutePath,
+        )
+    )
+}
+
+fun filterReport(input: File, output: File) {
+    val lines = input.readLines()
+    val regex = Regex("tpsl")
+
+    val result = mutableListOf<String>()
+    var skipBlock = false
+    var braceDepth = 0
+
+    for (line in lines) {
+        if (!skipBlock && regex.containsMatchIn(line)) {
+            skipBlock = true
+        }
+
+        if (skipBlock) {
+            braceDepth += line.count { it == '{' }
+            braceDepth -= line.count { it == '}' }
+            if (braceDepth <= 0) skipBlock = false
+        } else {
+            result += line
+        }
     }
+
+    output.writeText(result.joinToString("\n"))
 }
