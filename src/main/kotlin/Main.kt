@@ -6,27 +6,27 @@ import java.util.zip.ZipFile
 
 fun main(rawArgs: Array<String>) {
     val args = ArgProcessor(rawArgs)
-    val inputFile = File(args["jar-file"])
+    val inputFile = File(args["compiled-file"])
     val filter = args.getOrNull("filter")
-    val reportFile = File(args["report"])
-    val miniReportFile = args.getOrNull("mini-report")?.let { File(it) }
+    val fullReportFile = File(args["report"])
+    val filteredReportFile = args.getOrNull("filtered-report")?.let { File(it) }
 
     val jarFile = prepareInputJar(inputFile)
 
     // because metalava kills the process
     Runtime.getRuntime().addShutdownHook(Thread {
-        println("🔍 Metalava done with ${reportFile.name} ...")
+        println("🔍 Metalava done with ${fullReportFile.name} ...")
 
-        if (filter != null && miniReportFile != null)
-            filterReport(input = reportFile, output = miniReportFile, filter = filter)
+        if (filter != null && filteredReportFile != null)
+            filterReport(input = fullReportFile, output = filteredReportFile, filter = filter)
 
-        println("✅ Report was written to: ${reportFile.absolutePath} and ${miniReportFile?.absolutePath}")
+        println("✅ Report was written to: ${fullReportFile.absolutePath} and ${filteredReportFile?.absolutePath}")
 
         if (jarFile.path != inputFile.path)
             File("classes-${inputFile.nameWithoutExtension}.jar").delete()
     })
 
-    generateFullReport(input = jarFile, output = reportFile)
+    generateFullReport(input = jarFile, output = fullReportFile)
 }
 
 fun prepareInputJar(input: File): File =
