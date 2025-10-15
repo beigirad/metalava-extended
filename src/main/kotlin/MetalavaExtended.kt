@@ -3,6 +3,7 @@
 package ir.beigirad
 
 import ir.beigirad.consolehelper.ArgProcessor
+import org.jetbrains.annotations.TestOnly
 import java.io.File
 import java.util.zip.ZipFile
 
@@ -20,7 +21,7 @@ fun main(rawArgs: Array<String>) {
         println("🔍 Metalava done with ${fullReportFile.name} ...")
 
         if (filter != null && filteredReportFile != null)
-            filterReport(input = fullReportFile, output = filteredReportFile, filter = filter)
+            filteredReportFile.writeText(fullReportFile.readText(Charsets.UTF_8).filterReport(filter))
 
         println("✅ Report was written to: ${fullReportFile.absolutePath} and ${filteredReportFile?.absolutePath}")
 
@@ -65,27 +66,34 @@ fun generateFullReport(input: File, output: File) {
     }
 }
 
-fun filterReport(input: File, output: File, filter: String) {
-    val lines = input.readLines()
+@TestOnly
+fun String.filterReport(filter: String): String {
+    val lines = this.lines()
     val regex = Regex(filter, RegexOption.IGNORE_CASE)
 
     val result = mutableListOf<String>()
     var skipBlock = false
-    var braceDepth = 0
 
     for (line in lines) {
-        if (!skipBlock && regex.containsMatchIn(line)) {
-            skipBlock = true
+
+        if (line.isBlank()) continue
+
+        if (skipBlock && line.contains("}")) {
+            skipBlock = false
+            continue
         }
 
-        if (skipBlock) {
-            braceDepth += line.count { it == '{' }
-            braceDepth -= line.count { it == '}' }
-            if (braceDepth <= 0) skipBlock = false
-        } else {
-            result += line
+        if (skipBlock) continue
+
+        if (regex.containsMatchIn(line) && line.contains("{")) {
+            skipBlock = true
+            continue
         }
+
+        if (regex.containsMatchIn(line)) continue
+
+        result += line
     }
 
-    output.writeText(result.joinToString("\n"))
+    return result.joinToString("\n")
 }
