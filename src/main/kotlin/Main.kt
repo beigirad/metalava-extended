@@ -57,6 +57,7 @@ fun generateFullReport(input: File, output: File) {
             arrayOf(
                 "--source-files", input.absolutePath,
                 "--api", output.absolutePath,
+                "--format=v4",
             )
         )
     }
