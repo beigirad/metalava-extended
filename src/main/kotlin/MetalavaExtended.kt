@@ -1,3 +1,5 @@
+@file:JvmName("MetalavaExtended")
+
 package ir.beigirad
 
 import ir.beigirad.consolehelper.ArgProcessor
