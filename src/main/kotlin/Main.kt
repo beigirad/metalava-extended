@@ -22,7 +22,7 @@ fun main(rawArgs: Array<String>) {
 
         println("✅ Report was written to: ${reportFile.absolutePath} and ${miniReportFile?.absolutePath}")
 
-        if (jarFile != inputFile)
+        if (jarFile.path != inputFile.path)
             File("classes-${inputFile.nameWithoutExtension}.jar").delete()
     })
 
