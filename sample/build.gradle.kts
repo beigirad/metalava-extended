@@ -1,6 +1,6 @@
 plugins {
     id("java")
-    id("metalava-extended")
+    id("io.github.beigirad.metalava-extended")
 }
 
 tasks.register("runMetalava", JavaExec::class.java) {

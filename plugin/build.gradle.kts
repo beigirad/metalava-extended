@@ -1,10 +1,11 @@
 plugins {
     kotlin("jvm") version "1.8.20"
     `kotlin-dsl`
+    id("com.gradle.plugin-publish") version "2.0.0"
 }
 
-group = "ir.beigirad"
-version = "1.0-SNAPSHOT"
+group = "io.github.beigirad.metalava-extended"
+version = "1.0"
 
 repositories {
     mavenCentral()
@@ -30,10 +31,15 @@ tasks.test {
 }
 
 gradlePlugin {
+    website.set("https://github.com/beigirad/metalava-extended")
+    vcsUrl.set("https://github.com/beigirad/metalava-extended")
     plugins {
         register("metalava-extended-plugin") {
-            id = "metalava-extended"
+            id = "io.github.beigirad.metalava-extended"
             implementationClass = "ir.beigirad.metalavaextended.TapsellCompatibilityPlugin"
+            displayName = "Metalava-Extended Gradle Plugin"
+            description = "An extended version of metalava gradle plugin"
+            tags.set(listOf("metalava", "api-compatibility"))
         }
     }
 }
