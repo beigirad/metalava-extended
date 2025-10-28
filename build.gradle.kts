@@ -1,7 +1,6 @@
 plugins {
     kotlin("jvm") version "1.8.20"
-    id("com.gradleup.shadow") version "9.1.0"
-    application
+    `kotlin-dsl`
 }
 
 group = "ir.beigirad"
@@ -10,12 +9,6 @@ version = "1.0-SNAPSHOT"
 repositories {
     mavenCentral()
     google()
-    maven { url = uri("https://jitpack.io") }
-}
-
-application {
-    // Replace with your package and main class name
-    mainClass.set("ir.beigirad.MainKt")
 }
 
 java {
@@ -29,16 +22,11 @@ kotlin {
 
 dependencies {
     testImplementation(kotlin("test"))
-    implementation("com.android.tools.metalava:metalava:1.0.0-alpha06")
-    implementation("com.github.beigirad:console-helper:a77a84d0e8")
+    compileOnly(gradleApi())
 }
 
 tasks.test {
     useJUnitPlatform()
-}
-
-tasks.shadowJar {
-    isZip64 = true
 }
 
 tasks.register("runMetalava", JavaExec::class.java) {

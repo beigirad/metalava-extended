@@ -1,5 +1,6 @@
-import ir.beigirad.filterReport
-import org.junit.jupiter.api.Assertions.*
+package ir.beigirad.metalavaextended
+
+import org.junit.jupiter.api.Assertions.assertEquals
 import kotlin.test.Test
 
 class MetalavaExtendedTest {
