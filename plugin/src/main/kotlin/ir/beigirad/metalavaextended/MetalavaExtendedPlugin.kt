@@ -37,6 +37,11 @@ class TapsellCompatibilityPlugin : Plugin<Project> {
             val allJars = (buildDir / "outputs" / "aar").walkTopDown()
                 .filter { it.isFile && (it.extension == "aar") }
                 .toList()
+                .plus(
+                    (buildDir / "libs").walkTopDown()
+                    .filter { it.isFile && (it.extension == "jar") }
+                    .toList()
+                )
 
             allJars.forEach { jarFile ->
                 val reportPrefix = jarFile.nameWithoutExtension.removeSuffix("-release")

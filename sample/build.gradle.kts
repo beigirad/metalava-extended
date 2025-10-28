@@ -1,27 +1,6 @@
 plugins {
-    kotlin("jvm") version "1.8.20"
-    `kotlin-dsl`
-}
-
-group = "ir.beigirad"
-version = "1.0-SNAPSHOT"
-
-java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
-}
-
-kotlin {
-    jvmToolchain(11)
-}
-
-dependencies {
-    testImplementation(kotlin("test"))
-    compileOnly(gradleApi())
-}
-
-tasks.test {
-    useJUnitPlatform()
+    id("java")
+    id("metalava-extended")
 }
 
 tasks.register("runMetalava", JavaExec::class.java) {
