@@ -32,7 +32,7 @@ gradlePlugin {
     vcsUrl.set("https://github.com/beigirad/metalava-extended")
     plugins {
         create("metalava-extended-plugin") {
-            id = "io.github.beigirad.metalava-extended"
+            id = "metalava-extended"
             implementationClass = "ir.beigirad.metalavaextended.TapsellCompatibilityPlugin"
             displayName = "Metalava-Extended Gradle Plugin"
             description = "An extended version of metalava gradle plugin"
