@@ -1,7 +1,8 @@
 plugins {
     kotlin("jvm") version "1.8.20"
     `kotlin-dsl`
-    id("com.gradle.plugin-publish") version "2.0.0"
+    id("java-gradle-plugin")
+    id("maven-publish")
 }
 
 group = "io.github.beigirad.metalava-extended"
@@ -34,7 +35,7 @@ gradlePlugin {
     website.set("https://github.com/beigirad/metalava-extended")
     vcsUrl.set("https://github.com/beigirad/metalava-extended")
     plugins {
-        register("metalava-extended-plugin") {
+        create("metalava-extended-plugin") {
             id = "io.github.beigirad.metalava-extended"
             implementationClass = "ir.beigirad.metalavaextended.TapsellCompatibilityPlugin"
             displayName = "Metalava-Extended Gradle Plugin"
