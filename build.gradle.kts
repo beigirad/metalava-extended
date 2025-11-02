@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.8.20"
+    kotlin("jvm")
     `kotlin-dsl`
     id("java-gradle-plugin")
     id("maven-publish")
@@ -11,11 +11,6 @@ version = "1.0-SNAPSHOT"
 repositories {
     mavenCentral()
     google()
-}
-
-java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
 }
 
 kotlin {
