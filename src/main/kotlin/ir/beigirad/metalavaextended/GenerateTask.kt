@@ -1,13 +1,10 @@
 package ir.beigirad.metalavaextended
 
-import com.github.javaparser.metamodel.OptionalProperty
 import org.gradle.api.DefaultTask
 import org.gradle.api.Project
-import org.gradle.api.artifacts.repositories.MavenArtifactRepository
 import org.gradle.api.file.FileCollection
 import org.gradle.api.file.RegularFileProperty
-import org.gradle.api.provider.Property
-import org.gradle.api.tasks.CacheableTask
+import org.gradle.api.provider.ListProperty
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.InputFile
 import org.gradle.api.tasks.Optional
@@ -18,7 +15,6 @@ import org.jetbrains.annotations.TestOnly
 import java.io.File
 import java.util.zip.ZipFile
 import javax.inject.Inject
-import kotlin.io.writeText
 
 abstract class GenerateTask @Inject constructor(
     private val execOps: ExecOperations,
@@ -29,7 +25,7 @@ abstract class GenerateTask @Inject constructor(
 
     @get:Input
     @get:Optional
-    abstract val ignore: Property<String>
+    abstract val ignoreList: ListProperty<String>
 
     @get:OutputFile
     abstract val reportFile: RegularFileProperty
@@ -55,9 +51,10 @@ abstract class GenerateTask @Inject constructor(
 
         println("🔍 Metalava done with ${reportFile.get().asFile.name} ...")
 
-        if (ignore.orNull != null && filteredReportFile.orNull != null)
+        if (ignoreList.orNull != null && filteredReportFile.orNull != null)
             filteredReportFile.get().asFile.writeText(
-                reportFile.get().asFile.readText(Charsets.UTF_8).filterReport(ignore.get())
+                reportFile.get().asFile.readText(Charsets.UTF_8)
+                    .filterReport(*ignoreList.get().toTypedArray())
             )
 
         println("✅ Report was written to: ${reportFile.get().asFile.absolutePath} and ${filteredReportFile.orNull?.asFile?.absolutePath}")
@@ -101,9 +98,11 @@ abstract class GenerateTask @Inject constructor(
 }
 
 @TestOnly
-fun String.filterReport(ignore: String): String {
+fun String.filterReport(vararg ignores: String): String {
+    if (ignores.isEmpty()) return this
+
     val lines = this.lines()
-    val regex = Regex(ignore, RegexOption.IGNORE_CASE)
+    val regexes = ignores.map { Regex(it, RegexOption.IGNORE_CASE) }
 
     val result = mutableListOf<String>()
     var skipBlock = false
@@ -119,12 +118,14 @@ fun String.filterReport(ignore: String): String {
 
         if (skipBlock) continue
 
-        if (regex.containsMatchIn(line) && line.contains("{")) {
+        val matched = regexes.any { it.containsMatchIn(line) }
+
+        if (matched && line.contains("{")) {
             skipBlock = true
             continue
         }
 
-        if (regex.containsMatchIn(line)) continue
+        if (matched) continue
 
         result += line
     }

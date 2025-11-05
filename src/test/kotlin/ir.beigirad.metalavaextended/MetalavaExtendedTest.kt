@@ -6,7 +6,7 @@ import kotlin.test.Test
 class MetalavaExtendedTest {
 
     @Test
-    fun `filter a method`() {
+    fun `filter a single line method`() {
         val input = """
         package ir.tapsell.core {
             public final class LogTag {
@@ -54,5 +54,45 @@ class MetalavaExtendedTest {
         }""".trimIndent()
 
         assertEquals(input.filterReport("tpsl"), output)
+    }
+
+    @Test
+    fun `filter with multiple ignore phrases`() {
+        val input = """
+        package ir.tapsell.core {
+            public final class LogTag {
+                ctor public LogTag();
+                method public static String T_TAPSELL();
+                field public static final String tpslc;
+                field public static final String tpsld;
+                field public static final String tpsle;
+            }
+        }""".trimIndent()
+        val output = """
+        package ir.tapsell.core {
+            public final class LogTag {
+                ctor public LogTag();
+                method public static String T_TAPSELL();
+                field public static final String tpsle;
+            }
+        }""".trimIndent()
+
+        assertEquals(input.filterReport("tpslc", "tpsld"), output)
+    }
+
+    @Test
+    fun `filter with multiple empty phrases`() {
+        val input = """
+        package ir.tapsell.core {
+            public final class LogTag {
+                ctor public LogTag();
+                method public static String T_TAPSELL();
+                field public static final String tpslc;
+                field public static final String tpsld;
+                field public static final String tpsle;
+            }
+        }""".trimIndent()
+
+        assertEquals(input.filterReport(), input)
     }
 }

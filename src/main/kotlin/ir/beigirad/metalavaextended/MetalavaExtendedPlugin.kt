@@ -52,10 +52,7 @@ class MetalavaExtendedPlugin : Plugin<Project> {
                     this.jarFile.set(jarFile)
                     this.reportFile.set(fullReportFile)
                     this.filteredReportFile.set(filteredReportFile)
-                    // to skip `tpsl` phrases that are produces by proguard!
-                    // we assume all minified method are private api and changes of them
-                    // is not important for end-users
-                    this.ignore.set("tpsl")
+                    this.ignoreList.set(extension.ignoreList)
                 }
 
                 tasks.register("$deleteTaskName-${jarFile.name}", Delete::class) {
