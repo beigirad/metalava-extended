@@ -28,7 +28,7 @@ gradlePlugin {
     plugins {
         create("metalava-extended-plugin") {
             id = "metalava-extended"
-            implementationClass = "ir.beigirad.metalavaextended.TapsellCompatibilityPlugin"
+            implementationClass = "ir.beigirad.metalavaextended.MetalavaExtendedPlugin"
             displayName = "Metalava-Extended Gradle Plugin"
             description = "An extended version of metalava gradle plugin"
             tags.set(listOf("metalava", "api-compatibility"))

@@ -26,7 +26,7 @@ import java.io.File
  * - task `checkCompatibilityReport` doesn't work suit and detects some unrelated changes. It
  * should be fixed and only use it for compatibility verification.
  */
-class TapsellCompatibilityPlugin : Plugin<Project> {
+class MetalavaExtendedPlugin : Plugin<Project> {
     private val tasksGroup = "Metalava-Extended Compatibility Validator"
 
     private val generateTaskName = "generateCompatibilityReport"
