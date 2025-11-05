@@ -33,15 +33,14 @@ class MetalavaExtendedPlugin : Plugin<Project> {
     private val deleteTaskName = "deleteCompatibilityReport"
 
     override fun apply(project: Project): Unit = with(project) {
+        val extension = extensions.create("metalavaExtended", MetalavaExtendedExtension::class.java)
+
         afterEvaluate {
-            val allJars = (buildDir / "outputs" / "aar").walkTopDown()
+            val aars = (buildDir / "outputs" / "aar").walkTopDown()
                 .filter { it.isFile && (it.extension == "aar") }
-                .toList()
-                .plus(
-                    (buildDir / "libs").walkTopDown()
-                    .filter { it.isFile && (it.extension == "jar") }
-                    .toList()
-                )
+            val jars = (buildDir / "libs").walkTopDown()
+                .filter { it.isFile && (it.extension == "jar") }
+            val allJars = aars.toList() + jars.toList()
 
             allJars.forEach { jarFile ->
                 val reportPrefix = jarFile.nameWithoutExtension.removeSuffix("-release")
