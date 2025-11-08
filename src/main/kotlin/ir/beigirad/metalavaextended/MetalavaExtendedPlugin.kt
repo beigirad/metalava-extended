@@ -44,9 +44,16 @@ class MetalavaExtendedPlugin : Plugin<Project> {
 
             allJars.forEach { jarFile ->
                 val reportPrefix = jarFile.nameWithoutExtension.removeSuffix("-release")
-                val fullReportFile =
+
+                val fullReportFile = if (extension.reportDir.isPresent)
+                    extension.reportDir.asFile.get() / "$reportPrefix.api-full.txt"
+                else
                     buildDir / "compatibility-plugin" / "$reportPrefix.api-full.txt"
-                val filteredReportFile = projectDir / "$reportPrefix.api.txt"
+
+                val filteredReportFile = if (extension.filteredReportDir.isPresent)
+                    extension.filteredReportDir.asFile.get() / "$reportPrefix.api.txt"
+                else
+                    projectDir / "$reportPrefix.api.txt"
 
                 tasks.register("$generateTaskName-${jarFile.name}", GenerateTask::class) {
                     this.jarFile.set(jarFile)
