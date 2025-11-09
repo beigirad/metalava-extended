@@ -106,6 +106,7 @@ fun String.filterReport(vararg ignores: String): String {
 
     val result = mutableListOf<String>()
     var skipBlock = false
+    var lastLine: String? = null
 
     for (line in lines) {
 
@@ -127,6 +128,18 @@ fun String.filterReport(vararg ignores: String): String {
 
         if (matched) continue
 
+        // drop empty package blocks
+        if (
+            lastLine != null &&
+            lastLine.startsWith("package") && lastLine.endsWith("{") &&
+            line.contains("}")
+        ) {
+            result.removeLast()
+            lastLine = result.lastOrNull()
+            continue
+        }
+
+        lastLine = line
         result += line
     }
 

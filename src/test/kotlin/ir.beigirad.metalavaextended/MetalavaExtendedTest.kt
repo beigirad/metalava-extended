@@ -95,4 +95,18 @@ class MetalavaExtendedTest {
 
         assertEquals(input.filterReport(), input)
     }
+
+    @Test
+    fun `filter an empty block`() {
+        val input = """
+        package ir.sample.internal {
+            public final class sensitive {
+                ctor public hello();
+                method public static String hi();
+            }
+        }
+        """.trimIndent()
+
+        assertEquals(input.filterReport("sensitive"), "")
+    }
 }
